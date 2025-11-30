@@ -8,20 +8,40 @@ One of the goals of educational applications is to aid teachers in conveing know
 A well-designed educational application should be able to provide all the tools necessary to teach students a certain subject.
 It may also be installed on the student's personal computer, allowing them to study and practice efficiently even outside of school.
 
-The problem domain of the thesis are applications which allow the user to gain and improve their skills in the field of stereometry.
+The thesis is concerned with applications which allow the user to gain and improve their skills in the field of stereometry.
 Stereometry (or solid geometry) is geometry in three-dimensional space.
 Stereometry is concerned with the measurement of surface areas and volumes of solid figures, such as polyhedrons, spheres, cyllinders and cones.
 
-\section{Objective of the thesis}
+\section{Objective and scope of the thesis}
 
-The objective of the thesis is to design and implement a desktop application which allows the user to solve solid geometry tasks,
-consequently expanding their skills and knowledge in this field.
+Learning stereometry may prove difficult to a student without adequate tools.
+There are several tools to learn stereometry without the assistance of a computer application. These include:
+\begin{description}
+    \item[Blackboard and chalk] Offer only static representations of figures which are difficult to draw precisely. The drawings are usually only wireframes and do not have shading. This might make it hard to visualize what the drawing is meant to represent. Drawing the figures is also time-consuming.
+    \item[Printed textbooks] Include shading, but are still limited to static images which can be viewed from a single angle.
+    \item[Physical models] Present a true three-dimesional representation which can be rotated. The dimensions are constant and not every figure might be available as a physical model.
+\end{description}
+
+The objective of the thesis is to design and implement a desktop application which helps the user learn stereometry.
+
+Nowadays, web applications are more popular than desktop applications. Despite that, desktop applications have some advantages:
+\begin{itemize}
+    \item Desktop apps do not require an internet connection after installation, while web apps require constant connection to the server hosting the service.
+    \item Desktop apps are faster and more responsive as no data needs to be transfered between the client computer and a remote server.
+    \item Desktop apps give the user control over software updates - the user may use an older version if desired.
+\end{itemize}
+
+The application will allow the user to solve solid geometry tasks, consequently expanding their skills and knowledge in this field.
+A task will feature one or more three-dimensional figures. The user's goal is to calculate the total area and volume of said figures.
 After solving a task incorrectly, the user will receive a tip, to help them solve the task successfully.
 A database containing all mathematical formulas, as well as tips related to the tasks will be accessible.
-The user will have the possibility to change the task data and see the surface area and volume change dynamically.
+The user will have the possibility to change the task data and see how the shapes change dynamically.
 An important part of the application is its customizability - the user should be able to tweak the settings of the application as well as each task such that they get the best experience tailored to their needs.
 
-\section{Scope of the thesis}
+The application will be built using the Godot game engine. While designed primarily with video games in mind, it can be used to create other types of software. The application requires a modern-looking graphical user interface (GUI) and 3D rendering capabilites. Godot provides a suite of tools which simplify working with both of those systems.
+
+Other solutions like Flutter and Electron were considered but ultimately rejected. They provide a wide array of tools for developing desktop applications but do not have first-class 3D rendering support which would make developing the application more difficult.
+
 \section{Short description of chapters}
 
 \begin{itemize}
@@ -36,5 +56,3 @@ An important part of the application is its customizability - the user should be
     \item The seventh chapter concludes the thesis.
         It compares the achieved results to the objectives of the thesis and explores prospects of the project's further development.
 \end{itemize}
-
-\section{Clear description of contribution of the thesis's author}
