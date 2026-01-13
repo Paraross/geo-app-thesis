@@ -1,5 +1,119 @@
 \chapter{Problem analysis}
 
+\section{Mathematical description of selected solids}
+
+\subsection{Prism}
+
+A prism is a polyhedron consisting of two congruent \emph{n}-sided polygon bases and \emph{n} joining faces. Every joining face is a parallelogram.
+A prism is called after its base, e.g. a prism with a hexagonal base is called a hexagonal prism.
+An \emph{n}-gonal prism has $n + 2$ faces, $3n$ edges, and $2n$ vertices.
+
+\subsubsection{Special cases}
+
+An \emph{oblique prism} is a prism whose joining faces are not perpendicular to the bases.
+A prism whose whose joining faces are perpendicular to the bases is a \emph{right prism}.
+
+A right prism with a rectangular base is also called a \emph{cuboid}.
+A right prism with a square base is also called a \emph{square cuboid}.
+A square cuboid whose height is equal to the side length of its base is a \emph{cube}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{graf/prism}
+    \caption{A right prism with a rectangular base.}
+\end{figure}
+
+\subsubsection{Properties}
+
+\paragraph{Volume}
+
+The volume of a prism is the product of the base area and the height.
+The formula for the volume is:
+\begin{equation}
+    V = B h,
+\end{equation}
+where \emph{B} is the base area and \emph{h} is the height.
+
+\paragraph{Surface area}
+
+The surface area of a prism is the sum of all its faces' areas.
+The formula for the surface area is:
+\begin{equation}
+    A= 2B + P h,
+\end{equation}
+where \emph{B} is the base area, \emph{P} the perimeter, and \emph{h} the height.
+
+\subsection{Pyramid}
+
+A pyramid is a polyhedron consisiting of one polygonal base face connected to a point, called the apex.
+Each of the base's edges is connected to the apex, forming a triangle, called a lateral face.
+A pyramid with an \emph{n}-gonal base has $n + 1$ faces, $2n$ edges, and $n + 1$ vertices.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{graf/pyramid}
+    \caption{A right pyramid with a hexagonal base.}
+\end{figure}
+
+\subsubsection{Special cases}
+
+A pyramid is called a \emph{regular pyramid} when its base is a regular polygon.
+The definition of a \emph{right pyramid} varies between sources.
+Some sources define it as a regular pyramid whose height falls on the center of the base.\cite{gottwald2012vnr}
+According to other sources, a right pyramid is a pyramid, whose height falls on the center of a circle circumscribed about the pyramid's base.\cite{polya1990mathematics}
+A pyramid with a triangular base is also called a \emph{tetrahedron}.
+
+\subsubsection{Properties}
+
+\paragraph{Volume}
+
+The volume of a pyramid is one third of the product of the base area and the height.
+The formula for the volume is:
+
+\begin{equation}
+    V = \frac{1}{3} B h,
+\end{equation}
+where \emph{B} is the base area and \emph{h} is the height.
+
+\paragraph{Surface area}
+
+The surface area of a pyramid is the sum of the area of the base and the area of the lateral faces.
+For a regular right pyramid with an \emph{n}-gonal base and height \emph{h}, the surface area can be calculated as follows:
+
+Each regular \emph{n}-gon can be divided into \emph{n} congruent triangles.
+The base of the triangle is the side \emph{s} of the pyramid.
+The triangle's height $h_{B}$ is calculated as:
+\begin{equation}
+    h_{B} = \frac{1}{2} s \tan (\frac{n-2}{n}90^{\circ})
+\end{equation}
+Then, the polygon base area can be calculated by multiplying the area of one triangle by the number of sides:
+\begin{equation}
+\begin{split}
+    A_{B} & = \frac{s h_{B}}{2} n \\
+    & = \frac{1}{2} s (\frac{1}{2} s \tan (\frac{n-2}{n}90^{\circ})) n \\
+    & = \frac{1}{4} s^2 \tan (\frac{n-2}{n}90^{\circ}) n
+\end{split}
+\end{equation}
+Height of lateral triangles can be obtained by using the Pythagorean theorem:
+\begin{equation}
+    h_{L} = \sqrt{{h_{B}}^2 + h^2}
+\end{equation}
+The lateral area is calculated in a similar way to the base area:
+\begin{equation}
+\begin{split}
+    A_{L} & = \frac{s h_{L}}{2} n \\
+    & = \frac{s \sqrt{{h_{B}}^2 + h^2}}{2} n
+\end{split}
+\end{equation}
+Finally, the total area is the sum of the base area and the lateral area:
+\begin{equation}
+\begin{split}
+    A  & = A_{B} + A_{L} \\
+    & = \frac{1}{4} s^2 \tan (\frac{n-2}{n}90^{\circ}) n + \frac{s \sqrt{{h_{B}}^2 + h^2}}{2} n \\
+    & = \frac{1}{2} s n (\frac{1}{2} s \tan (\frac{n-2}{n}90^{\circ}) + \sqrt{{h_{B}}^2 + h^2})
+\end{split}
+\end{equation}
+
 \section{Existing solutions}
 
 % https://www.geogebra.org/3d
