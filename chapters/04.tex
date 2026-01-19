@@ -1,44 +1,259 @@
 \chapter{External specification}
+
+\section{System requirements}
+
+A desktop computer or a laptop is required the application.
+The application can run on the Windows, macOS and Linux operating systems.
+The application requires approximately 100 MB of storage space.
+The application was mainly tested on a laptop device with the following software and hardware configuration:
+
+\bigskip
+
+\begin{tabularx}{0.9\linewidth}{l X}
+    CPU & AMD Ryzen 7 5800H \\
+    GPU & NVIDIA GeForce RTX 3050 \\
+    RAM & 16 GB \\
+    Operating system & Windows 11 \\
+\end{tabularx}
+
+\bigskip
+
+The application performed smoothly on the device.
+Due to limited access to other hardware, the application could not be tested on low-end devices to establish minimum system requirements accurately.
+The Godot Engine documentation lists the following as the minimum system requirements:\cite{godotspecsdocs}
+
+\bigskip
+
+\begin{tabularx}{0.9\linewidth}{l X}
+    CPU & x86\_32 CPU with SSE2 support, x86\_64 CPU with SSE4.2 support, ARMv8 CPU \\
+    GPU & Integrated graphics with full Vulkan 1.0 support, Metal 3 support (macOS) or Direct3D 12 (12\_0 feature level) support (Windows) \\
+    RAM & 2 GB \\
+    Operating system & Windows 10, macOS 10.15, Linux distribution released after 2018
+\end{tabularx}
+
+\section{Installation}
+
+The application does not require installation on any supported platform.
+It is launched directly from the appropriate executable.
+
+The application was tested only on the Windows operating system.
+As such, the instructions for other operating systems may contain errors.
+
+\subsection{Windows}
+
+For the Windows operating system, the application is provided as a single executable file.
+To start the application, the user should run the \textbf{GeoApp.exe} executable.
+
+Depending on system security settings, Windows may display a warning about an unknown publisher.
+In this case, the user can confirm the warning to start the application.
+The executable is compiled for the x86-64 architecture.
+
+\subsection{Linux}
+
+For the Linux operating system, the application is provided as a single executable file.
+The user should ensure that the file has execution permissions.
+This can be done through the file manager or by executing the following command in the terminal:
+
+\begin{verbatim}
+chmod +x GeoApp.x86_64
+\end{verbatim}
+
+When the file has execution permissions, the application can be started by running the \textbf{GeoApp.x86\_64} executable.
+The executable is compiled for the x86-64 architecture.
+
+\subsection{macOS}
+
+On the macOS operating system, the application is provided in a \texttt{.zip} archive containing an application bundle.
+First, the user should extract the provided \textbf{GeoApp.zip} file.
+The user may then optionally move the extracted \textbf{GeoApp.app} file to the \textbf{Applications} folder.
+To start the application, the user should run the \textbf{GeoApp.app} application.
+
+Since the application is not digitally signed, a security warning may appear when the application is started for the first time.
+When this happens, the user can start the application by right-clicking the \textbf{GeoApp.app} file, selecting \textbf{Open} and confirming the dialog.
+Alternatively, the application can be allowed in the system settings under \textbf{Privacy \& Security}.
+
+\section{User manual}
+
+The application consists of several modules, namely \textit{Task exploration}, \textit{Task solving} and the \textit{Playground}.
+Each module provides different ways for the user to learn stereometry.
+
+\subsection{Main menu}
+
+Upon starting the application, the user sees the main menu.
+The main menu is a central hub from which the rest of the application can be accessed.
+The main menu contains several button used to navigate the application.
+
 \begin{itemize}
-\item hardware and software requirements
-\item installation procedure
-\item activation procedure
-\item types of users
-\item user manual
-\item system administration
-\item security issues
-\item example of usage
-\item working scenarios (with screenshots or output files)
+    \item The \textit{Explore tasks} button takes the user to the \textit{Task exploration} module.
+    \item The \textit{Solve tasks} button takes the user to the \textit{Task solving} module.
+    \item The \textit{Playground} button takes the user to the \textit{Playground} module.
+    \item The \textit{Settings} button takes the user to the settings.
+    \item The \textit{Quit} button closes the application.
 \end{itemize}
 
-
-
- 
 \begin{figure}
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    y tick label style={
-        /pgf/number format/.cd,
-            fixed,    
-            fixed zerofill, % 1.0 zamiast 1
-            precision=1,
-        /tikz/.cd
-    },
-    x tick label style={
-        /pgf/number format/.cd,
-            fixed,
-            fixed zerofill,
-            precision=2,
-        /tikz/.cd
-    }
-]
-\addplot [domain=0.0:0.1] {rnd};
-\end{axis} 
-\end{tikzpicture}
-\caption{Figure caption (below the figure).}
-\label{fig:2}
+    \centering
+    \includegraphics[width=\textwidth]{graf/main_menu}
+    \caption{The main menu of the application.}
 \end{figure}
+
+\subsection{Task exploration}
+
+The purpose of the \textit{Task exploration} module is to teach the user about the tasks available in the application.
+Ordered from left to right, the user interface features:
+
+\begin{itemize}
+    \item A list of all task, grouped by difficulty. The tasks can also be filtered by their name.
+    \item All data describing the task.
+        Each parameter can be changed.
+        All UI (user interface) elements will update dynamically when a parameter is changed.
+    \item The description of the task.
+    \item A list of all of the steps required to solve the tasks.
+        For each step, there is:
+        \begin{itemize}
+            \item The description of what should be calculated for the step.
+            \item A help button. The button shows a hint for its respective step when pressed.
+            \item A number control which displays the correct answer for its respective step.
+        \end{itemize}
+    \item A view of the selected task.
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graf/explore_tasks}
+    \caption{The \textit{Task exploration} module.}
+\end{figure}
+
+\subsection{Task solving}
+
+The purpose of the \textit{Task solving} module is to test the user's knowledge and skills gained in the \textit{Task exploration} module.
+The \textit{Task solving} module is split into two parts.
+
+The first part is task selection.
+Here, the user selects the task they wish to solve.
+To select a task, the user must first select a difficulty.
+When a difficulty is selected, all available tasks with this difficulty are shown.
+Then, the user should select their desired task and press the \textbf{Start} button.
+The \textbf{Start} button can be pressed only when a task is selected.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graf/task_filter}
+    \caption{Task selection.}
+\end{figure}
+
+After pressing the \textbf{Start} button, the user is transported to the main part of the \textit{Task solving} module.
+
+The parameter values of the task are randomly picked from a predefined range.
+The range is defined on a per-parameter basis.
+The precision (the number of decimal digits of the value) is also defined on a per-parameter basis.
+
+Inside the main part of the \textit{Task solving} module, the user can find:
+
+\begin{itemize}
+    \item The view of the current task.
+    \item The description of the task.
+    \item The step navigation buttons.
+    \item The \textit{step container}.
+    \item The \textbf{Check answer} button.
+    \item The \textbf{Get new task} button.
+\end{itemize}
+
+% todo: step nav
+
+The \textit{step container} is the part of the UI responsible for displaying the task's steps.
+The step container looks similar to the one present in the \textit{Task exploration} module.
+Despite that, the two differ in several aspects.
+
+First, the user can interact with the number controls.
+The number controls are where the user puts their solutions to the task.
+The user may edit the value only of the current step's number control.
+If the user enters the correct value and presses the \textbf{Check answer} button, a green checkmark symbol appears to the right side of the number control.
+If the user enters an incorrect value, a red X symbol appears instead.
+
+Second, only steps up to the current step are visible.
+The navigation buttons are used to move between steps.
+The \textbf{< Prev} button moves to the previous step.
+The \textbf{Next >} button moves to the next step.
+The buttons are active only when the user is able to change the current step.
+The \textbf{< Prev} button is inactive when the user is on the first step of the task.
+The \textbf{Next >} button is inactive when the user is on the last step of the task or the answer for the current step is incorrect.
+
+When the user enters the correct answer for the last step of the task, the task is completed.
+When a task is completed, a label with the text "Task complete!" appears under the \textbf{Check answer} button.
+
+The \textbf{Get new task} button resets the current task and provides the user with a new one with randomized values.
+Returning to the task selection screen and selecting the same task achieves the same goal.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graf/task}
+    \caption{The default state of the task solving screen.}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graf/task_solved}
+    \caption{The task solving screen after the current task is completed.}
+\end{figure}
+
+\subsection{Playground}
+
+\subsection{Settings}
+
+% \begin{tabular}{ |c|c|c| } 
+%  \hline
+%  cell1 & cell2 & cell3 \\ 
+%  cell4 & cell5 & cell6 \\ 
+%  cell7 & cell8 & cell9 \\ 
+%  \hline
+% \end{tabular}
+
+% \begin{tabularx}{0.75\linewidth}{l|X}
+%     PN-EN 61000-6-4 & Generic standards - Emission standard for industrial environments \\
+%     \hline
+%     PN-EN 55024 & Information technology equipment - Immunity characteristics - Limits and methods of measurement \\
+%     \hline
+%     PN-EN 61000-4-4 & Testing and measurement techniques - Electrical fast transient  \\
+% \end{tabularx}
+
+% \begin{itemize}
+% \item hardware and software requirements
+% \item installation procedure
+% \item activation procedure
+% \item types of users
+% \item user manual
+% \item system administration
+% \item security issues
+% \item example of usage
+% \item working scenarios (with screenshots or output files)
+% \end{itemize}
+ 
+% \begin{figure}
+% \centering
+% \begin{tikzpicture}
+% \begin{axis}[
+%     y tick label style={
+%         /pgf/number format/.cd,
+%             fixed,    
+%             fixed zerofill, % 1.0 zamiast 1
+%             precision=1,
+%         /tikz/.cd
+%     },
+%     x tick label style={
+%         /pgf/number format/.cd,
+%             fixed,
+%             fixed zerofill,
+%             precision=2,
+%         /tikz/.cd
+%     }
+% ]
+% \addplot [domain=0.0:0.1] {rnd};
+% \end{axis} 
+% \end{tikzpicture}
+% \caption{Figure caption (below the figure).}
+% \label{fig:2}
+% \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%
 % FIGURE FROM FILE
