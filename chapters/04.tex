@@ -199,6 +199,61 @@ Returning to the task selection screen and selecting the same task achieves the 
 
 \subsection{Playground}
 
+The playground allows the user to create an arbitrary polyhedron and inspect its properties.
+The playground starts empty and the user can add vertices from which the polyhedron is created.
+The vertices can be added in several ways.
+
+\subsubsection{Adding vertices}
+
+The easiest way is to load a predefined polyhedron.
+To do this, the user should select one of the predefined polyhedrons next to the "Load a polyhedron" label.
+Next, they should press the \textbf{Load} button to the right.
+This loads a predefined set of vertices.
+
+Another way to load a set of vertices is to load them from a file.
+To do this, the user should press the \textbf{Load} button next to the "Load a polyhedron from a file" label.
+A system file dialog should appear, expecting the user to select a file with the \texttt{.poly} extension.
+No example files are provided by default.
+A detailed explanation of \texttt{.poly} files is provided in section \ref{poly_files}. % TODO: numer Playground jest
+
+% TODO: przepisac
+
+% The last way to add a vertex is to use the \textbf{Add new vertex} button next to the "Vertices" label.
+% This adds a new vertex in the origin of the coordinate system.
+% When adding vertices this way, errors may appear.
+% Errors appear when a polyhedron cannot be created from the provided vertices.
+% Errors are explained in detail in section \ref{vertex_errors}.
+
+% \subsubsection{Polyhedron synchronization} \label{poly_sync}
+%
+% The polyhedron can be in two states - synchronized or unsychronized.
+% The polyhedron is synchronized when its vertices are equal to the vertices in the UI.
+% Otherwise, is is unsychronized.
+%
+% The polyhedron becomes unsychronized when:
+% a vertex is removed.
+%
+% \subsubsection{Incorrect vertices} \label{vertex_errors}
+%
+% There are two kinds of errors that may appear when editing vertices.
+% When any error related to the vertices is present, a red exclamation mark appears next to the "Vertices" label.
+%
+% The first kind of error is the duplicate vertex error.
+% It appears when two vertices are equal.
+% To resolve the issue, the user should make sure that each vertex is unique.
+%
+% The other kind of error is the "not in polyhedron" error.
+
+% TODO: niewlasciwe przy ladowaniu z pliku
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graf/playground}
+    \caption{The default state of the playround module.}
+\end{figure}
+
+\subsubsection{Polyhedron files} \label{poly_files}
+
 \subsection{Settings}
 
 % \begin{tabular}{ |c|c|c| } 
@@ -208,14 +263,6 @@ Returning to the task selection screen and selecting the same task achieves the 
 %  cell7 & cell8 & cell9 \\ 
 %  \hline
 % \end{tabular}
-
-% \begin{tabularx}{0.75\linewidth}{l|X}
-%     PN-EN 61000-6-4 & Generic standards - Emission standard for industrial environments \\
-%     \hline
-%     PN-EN 55024 & Information technology equipment - Immunity characteristics - Limits and methods of measurement \\
-%     \hline
-%     PN-EN 61000-4-4 & Testing and measurement techniques - Electrical fast transient  \\
-% \end{tabularx}
 
 % \begin{itemize}
 % \item hardware and software requirements
