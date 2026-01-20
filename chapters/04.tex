@@ -97,6 +97,9 @@ The main menu contains several button used to navigate the application.
     \caption{The main menu of the application.}
 \end{figure}
 
+% TODO:
+% \subsection{The 3D view}
+
 \subsection{Task exploration}
 
 The purpose of the \textit{Task exploration} module is to teach the user about the tasks available in the application.
@@ -203,9 +206,16 @@ The playground allows the user to create an arbitrary polyhedron and inspect its
 The playground starts empty and the user can add vertices from which the polyhedron is created.
 The vertices can be added in several ways.
 
-\subsubsection{Adding vertices}
+% TODO: nieauktalny screenshot
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graf/playground}
+    \caption{The default state of the playround module.}
+\end{figure}
 
-The easiest way is to load a predefined polyhedron.
+\subsubsection{Adding vertices} \label{add_verts}
+
+The easiest way to add vertices is to load a predefined polyhedron.
 To do this, the user should select one of the predefined polyhedrons next to the "Load a polyhedron" label.
 Next, they should press the \textbf{Load} button to the right.
 This loads a predefined set of vertices.
@@ -213,46 +223,68 @@ This loads a predefined set of vertices.
 Another way to load a set of vertices is to load them from a file.
 To do this, the user should press the \textbf{Load} button next to the "Load a polyhedron from a file" label.
 A system file dialog should appear, expecting the user to select a file with the \texttt{.poly} extension.
-No example files are provided by default.
+No example \texttt{.poly} files are provided by default.
 A detailed explanation of \texttt{.poly} files is provided in section \ref{poly_files}. % TODO: numer Playground jest
 
-% TODO: przepisac
+The last way to add a vertex is to use the \textbf{Add new vertex} button next to the "Vertices" label.
+This adds a new vertex in the origin of the coordinate system.
+When adding vertices this way, the polyhedron may become invalid.
+Polyhedron validity is explained in section \ref{poly_valid}.
 
-% The last way to add a vertex is to use the \textbf{Add new vertex} button next to the "Vertices" label.
-% This adds a new vertex in the origin of the coordinate system.
-% When adding vertices this way, errors may appear.
-% Errors appear when a polyhedron cannot be created from the provided vertices.
-% Errors are explained in detail in section \ref{vertex_errors}.
+\subsubsection{The vertex list}
 
-% \subsubsection{Polyhedron synchronization} \label{poly_sync}
-%
-% The polyhedron can be in two states - synchronized or unsychronized.
-% The polyhedron is synchronized when its vertices are equal to the vertices in the UI.
-% Otherwise, is is unsychronized.
-%
-% The polyhedron becomes unsychronized when:
-% a vertex is removed.
-%
-% \subsubsection{Incorrect vertices} \label{vertex_errors}
-%
-% There are two kinds of errors that may appear when editing vertices.
-% When any error related to the vertices is present, a red exclamation mark appears next to the "Vertices" label.
-%
-% The first kind of error is the duplicate vertex error.
-% It appears when two vertices are equal.
-% To resolve the issue, the user should make sure that each vertex is unique.
-%
-% The other kind of error is the "not in polyhedron" error.
+The vertex list is the part of the UI where all of the added vertices are shown.
+Each polyhedron vertex corresponds to one entry in the vertex list.
+Each entry consists of:
+\begin{itemize}
+    \item The editable name of the vertex. It is used for display only.
+        It appears in the vertex informational label alongside the coordinates.
+    \item Three number controls corresponding to the coordinates of the vertex. 
+        The first, second and third number controls correspond to the X, Y and Z coordinates respectively.
+    \item The remove button. The vertex is removed when this button is pressed.
+    \item A red "Duplicate vertex" warning. This warning appears only when there are multiple vertices with the same coordinates.
+\end{itemize}
+Changes in the vertex list are immediately reflected in the 3D view.
 
-% TODO: niewlasciwe przy ladowaniu z pliku
+\subsubsection{Polyhedron validity} \label{poly_valid}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{graf/playground}
-    \caption{The default state of the playround module.}
-\end{figure}
+When modifying vertices, the polyhedron may become invalid.
+The polyhedron is invalid when it cannot be created from the provided vertices.
+Otherwise, it is valid.
+When the polyhedron is valid:
+\begin{itemize}
+    \item The polyhedron in the 3D view is filled, its vertices and edges are shown,
+    \item The properties UI displays the values of the polyhedron's area and volume,
+    \item No warning is shown.
+\end{itemize}
+When the polyhedron is invalid:
+\begin{itemize}
+    \item Only the vertices are shown in the 3D view,
+    \item The properties UI displays 0 for both area and volume,
+    \item A warning in the form of a red exclamation mark is shown next to the "Vertices" label.
+\end{itemize}
+
+It may happen that the user adds two or more vertices with equal coordinates.
+All such vertices except the first one are marked as duplicate.
+Duplicate vertices show a red "Duplicate vertex" warning in the vertex list.
+When there are any duplicate vertices, the polyhedron is considered invalid.
 
 \subsubsection{Polyhedron files} \label{poly_files}
+
+A polyhedron file is a file that stores all of the data of one polyhedron.
+Polyhedron files have the \texttt{.poly} extension.
+They can be created in the \textit{Playground} module.
+A polyhedron file is created with the use of the \textbf{Save to file} button near the "Vertices" label.
+When the \textbf{Save to file} button is pressed, a system file dialog appears.
+The user may save the polyhedron to a file even if the polyhedron is invalid
+In the dialog, the user should specify the name of the file and where to save it.
+After the file is saved, it is ready to be loaded.
+The instructions on how to load a polyhedron file are provided in section \ref{add_verts}.
+
+% TODO: tu czy w specyfikacji wewnetrznej
+% Polyhedron files store data in the JSON (JavaScript Object Notation) format.
+
+% \subsubsection{Other}
 
 \subsection{Settings}
 
