@@ -82,13 +82,12 @@ Each module provides different ways for the user to learn stereometry.
 Upon starting the application, the user sees the main menu.
 The main menu is a central hub from which the rest of the application can be accessed.
 The main menu contains several button used to navigate the application.
-
 \begin{itemize}
-    \item The \textit{Explore tasks} button takes the user to the \textit{Task exploration} module.
-    \item The \textit{Solve tasks} button takes the user to the \textit{Task solving} module.
-    \item The \textit{Playground} button takes the user to the \textit{Playground} module.
-    \item The \textit{Settings} button takes the user to the settings.
-    \item The \textit{Quit} button closes the application.
+    \item The \textbf{Explore tasks} button takes the user to the \textit{Task exploration} module,
+    \item The \textbf{Solve tasks} button takes the user to the \textit{Task solving} module,
+    \item The \textbf{Playground} button takes the user to the \textit{Playground} module,
+    \item The \textbf{Settings} button takes the user to the settings,
+    \item The \textbf{Quit} button closes the application.
 \end{itemize}
 
 \begin{figure}
@@ -139,11 +138,36 @@ When an object with a visible informational label is clicked, the informational 
     \caption{The 3D view as seen in the \textit{Playground} module. The informational labels are visible}
 \end{figure}
 
+\subsection{The navigation bar}
+
+Each screen, except for the main menu, features a navigation bar.
+The navigation bar appears above the main content of the current screen.
+The navigation bar contains five buttons:
+\begin{itemize}
+    \item The \textbf{Main menu} button transfers the user to the main menu,
+    \item The \textbf{Explore tasks} button transfers the user to the task exploration screen,
+    \item The \textbf{Solve tasks} button transfers the user to the task selection screen,
+    \item The \textbf{Playground} button transfers the user to the playground screen,
+    \item The button with the gear icon transfers the user to the settings screen.
+\end{itemize}
+The button corresponding to the current screen is disabled.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graf/navbar_explore}
+    \caption{The navigation bar as seen in the task exploration screen.}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graf/navbar_settings}
+    \caption{The navigation bar as seen in the settings screen.}
+\end{figure}
+
 \subsection{Task exploration}
 
 The purpose of the \textit{Task exploration} module is to teach the user about the tasks available in the application.
 Ordered from left to right, the user interface features:
-
 \begin{itemize}
     \item A list of all task, grouped by difficulty. The tasks can also be filtered by their name.
     \item All data describing the task.
@@ -189,20 +213,15 @@ After pressing the \textbf{Start} button, the user is transported to the main pa
 The parameter values of the task are randomly picked from a predefined range.
 The range is defined on a per-parameter basis.
 The precision (the number of decimal digits of the value) is also defined on a per-parameter basis.
-
 Inside the main part of the \textit{Task solving} module, the user can find:
-
 \begin{itemize}
-    \item The view of the current task.
-    \item The description of the task.
-    \item The step navigation buttons.
-    \item The \textit{step container}.
-    \item The \textbf{Check answer} button.
+    \item The view of the current task,
+    \item The description of the task,
+    \item The step navigation buttons,
+    \item The \textit{step container},
+    \item The \textbf{Check answer} button,
     \item The \textbf{Get new task} button.
 \end{itemize}
-
-% todo: step nav
-
 The \textit{step container} is the part of the UI responsible for displaying the task's steps.
 The step container looks similar to the one present in the \textit{Task exploration} module.
 Despite that, the two differ in several aspects.
