@@ -97,8 +97,47 @@ The main menu contains several button used to navigate the application.
     \caption{The main menu of the application.}
 \end{figure}
 
-% TODO:
-% \subsection{The 3D view}
+\subsection{The 3D view}
+
+The 3D view is a part of the \textit{Task exploration}, \textit{Task solving} and \textit{Playground} modules.
+When the 3D view is visible, the user can interact with it.
+
+The camera of the 3D view can be moved.
+The camera orbits the center of the coordinate system and always looks looks in its direction.
+The camera can be rotated up, down, left and right with the \textbf{W}, \textbf{S}, \textbf{A} and \textbf{D} keys respectively.
+The camera can be zoomed in with the \textbf{E} key and zoomed out with the \textbf{Q} key.
+
+When a solid is loaded in the 3D view, the user can inspect some of its properties.
+When an object (the solid, one of its vertices or one of its edges) is hovered overed by the mouse cursor, it becomes red.
+When a hovered vertex or edge is clicked, an informational label appears.
+The informational label for a vertex contains its position.
+In the \textit{Playground} module, the label also contains the name of the vertex.
+The informational label for an edge contains its length.
+When an object with a visible informational label is clicked, the informational label disappears.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{graf/3d_view_task}
+    \caption{The 3D view as seen in the \textit{Task exploration} and \textit{Task solving} modules.}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{graf/3d_view_task_label}
+    \caption{The 3D view as seen in the \textit{Task exploration} and \textit{Task solving} modules. The informational labels are visible}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{graf/3d_view_play}
+    \caption{The 3D view as seen in the \textit{Playground} module.}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{graf/3d_view_play_label}
+    \caption{The 3D view as seen in the \textit{Playground} module. The informational labels are visible}
+\end{figure}
 
 \subsection{Task exploration}
 
