@@ -29,7 +29,6 @@
         There will be no noticeable stutters and delays when interacting with the application.
     \item[Reliability] The application will not crash during runtime and gracefully handle invalid input.
     \item[Correctness] The application will correctly calculate all characteristics of 3D objects.
-        The user will be able to set the precision with which the results will be displayed.
     \item[Maintainability] The application code will be open-source.
         The application will be structured in a way allowing easy future extension in the form of new tasks and features.
     \item[Security] The application will not require internet access after installation.
@@ -37,6 +36,38 @@
     \item[Educational suitability] The application will be suited for use in the classroom and at home.
         The provided tasks will be comparable to tasks from a school stereometry curriculum.
 \end{description}
+
+\section{Used tools}
+
+\subsection{Godot Engine}
+
+Godot\footnote{\url{https://godotengine.org}} is a cross-platform, free and open-source game engine.
+It is designed to create 2D and 3D games mainly for the PC (personal computer), mobile and web platforms.
+Despite its main focus being the creation of games, it can be used to develop other types of software.
+
+The engine itself is written mostly in C++.
+The primary language used in Godot to create software is GDScript.
+Other than GDScript, C\# and C++ are also officially supported.
+Aside from the officially supported languages, support for other languages is provided by community extensions.
+Some of the community-supported languages are Rust, Swift and Java.
+
+Godot introuduces the concept of \textit{nodes}.
+A node is the basic building block of the application.
+A node encapsulates a specific functionality related to 2D or 3D graphics, user interface, etc.
+Nodes are organized in a tree structure.
+Each node can have child nodes.
+This allows for the creation of complex behaviors through the composition of simple elements.
+
+A \textit{scene} is a reusable composition of nodes.
+Scenes are typically used to represent logical parts of the application, such as user interface screens or 3D objects.
+A scene can be instantiated multiple times and can be composed of other scenes.
+
+Through the use of nodes and scenes, Godot enables modularity and maintainability.
+This model is well suited for application which require interactive user interfaces and dynamic scene management.
+
+\subsection{Neovim}
+
+\subsection{Git}
 
 % \begin{itemize}
 % \item functional and nonfunctional requirements
