@@ -346,6 +346,48 @@ The instructions on how to load a polyhedron file are provided in section \ref{a
 
 \subsection{Settings}
 
+The settings screen allows the user to change certain behaviors of the application.
+Settings are split into two sections.
+The \textit{Camera} section contains two settings related to the camera of the 3D view:
+\begin{itemize}
+    \item The \textit{Move speed} setting determines the rotation speed. It is expressed in degrees per second.
+    \item The \textit{Zoom speed} setting determines the zoom speed. It is expressed in the 3D view world units per second.
+\end{itemize}
+
+The \textit{Playground} section contains one setting related to the playground module.
+The \textit{Coordinate precision} setting determines how precisely the vertices can be placed.
+It is expressed in the number of decimal digits.
+
+The settings are stored in a \textbf{settings.cfg} file
+The location of this file is platform-dependent:
+
+\bigskip
+
+\begin{tabularx}{0.9\linewidth}{|l|X|}
+    \hline
+    Platform & Location \\
+    \hline
+    Windows & \texttt{\%APPDATA\%\textbackslash GeoApp} \\
+    \hline
+    Linux & \texttt{\textasciitilde/.local/share/GeoApp} \\
+    \hline
+    macOS & \texttt{\textasciitilde/Library/Application Support/GeoApp} \\
+    \hline
+\end{tabularx}
+
+\bigskip
+
+The user should not modify this file manually.
+If the file is modified in a way that the application cannot read it correctly, the settings are set to the default values.
+The file is then saved in the correct format.
+The same happens when the file is deleted.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graf/settings}
+    \caption{The settings screen.}
+\end{figure}
+
 % \begin{tabular}{ |c|c|c| } 
 %  \hline
 %  cell1 & cell2 & cell3 \\ 
