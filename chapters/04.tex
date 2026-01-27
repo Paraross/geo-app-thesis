@@ -382,6 +382,19 @@ If the file is modified in a way that the application cannot read it correctly, 
 The file is then saved in the correct format.
 The same happens when the file is deleted.
 
+If the user manually enters a value outside of the range defined by the setting, the value is constrained to the defined range.
+The file is not changed and contains the value entered manually.
+
+With all settings set to default values, the \textbf{settings.cfg} has the following content:
+
+\begin{verbatim}
+[settings]
+
+"Move speed"=120.0
+"Zoom speed"=5.0
+"Coordinate precision"=0
+\end{verbatim}
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{graf/settings}
