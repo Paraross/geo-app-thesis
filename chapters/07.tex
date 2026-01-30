@@ -1,7 +1,45 @@
 \chapter{Conclusions}
-\begin{itemize}
-\item achieved results with regard to objectives of the thesis and requirements
-\item path of further development (eg functional extension …)
-\item encountered difficulties and problems
-\end{itemize}
+
+\section{Obtained result}
+
+The goal of the project was to create an educational application which made learning stereometry easier.
+The finished result achieves this goal with the use of three modules, namely task exploration, task solving and the playground.
+
+\section{Further development}
+
+The application meets the specified functional and non-functional requirements.
+Despite that, there is room for improving the existing features and adding new ones.
+
+The keyboard controls for the 3D view currently cannot be modified.
+This could be improved by allowing the user to change the controls in the settings.
+
+Another improvement for the playground is related to the polyhedron's vertices.
+Currently, the only way to move a vertex is through the vertex list.
+Another way of moving a vertex could be accomplished through the 3D view.
+Upon clicking a vertex, a control would appear.
+The control would allow the user to easily move the vertex on each axis.
+
+The set of tasks is small and could thus be expanded.
+New tasks could feature new solids, including non-polyhedrons.
+
+\section{Encountered difficulties}
+
+Even though the used tools are well suited for the project, some issues arose during the development.
+The most common issue that appeared multiple times was screen state management.
+Some elements, like the polyhedron or task in the 3D view, were not being reset correctly when entering or exiting the screen they were in.
+This caused some properties to be set to null and the application to crash.
+Godot's debugger helped track the source of these issues.
+A potential solution would be to instantiate the screen from scratch when it is entered.
+When done this way, care should be taken regarding the performance of such approach.
+Another issue was the class structure.
+The classes were refactored several times to accomodate for changing requirements.
+One example are classes representing solids like cube and prism.
+Originally, they were derived from the general \texttt{Figure} class.
+Later, a new \texttt{Polyhedron} class was added and the \texttt{Cube} and \texttt{Prism} classes were rewritten to inherit from it.
+
+% \begin{itemize}
+% \item achieved results with regard to objectives of the thesis and requirements
+% \item path of further development (eg functional extension …)
+% \item encountered difficulties and problems
+% \end{itemize}
 

@@ -308,6 +308,7 @@ Changes in the vertex list are immediately reflected in the 3D view.
 
 When modifying vertices, the polyhedron may become invalid.
 The polyhedron is invalid when it cannot be created from the provided vertices.
+A polyhedron which contains concave faces is considered invalid.
 Otherwise, it is valid.
 When the polyhedron is valid:
 \begin{itemize}
@@ -334,13 +335,10 @@ Polyhedron files have the \texttt{.poly} extension.
 They can be created in the \textit{Playground} module.
 A polyhedron file is created with the use of the \textbf{Save to file} button near the "Vertices" label.
 When the \textbf{Save to file} button is pressed, a system file dialog appears.
-The user may save the polyhedron to a file even if the polyhedron is invalid
+The user may save the polyhedron to a file even if the polyhedron is invalid.
 In the dialog, the user should specify the name of the file and where to save it.
 After the file is saved, it is ready to be loaded.
 The instructions on how to load a polyhedron file are provided in section \ref{add_verts}.
-
-% TODO: tu czy w specyfikacji wewnetrznej
-% Polyhedron files store data in the JSON (JavaScript Object Notation) format.
 
 % \subsubsection{Other}
 
