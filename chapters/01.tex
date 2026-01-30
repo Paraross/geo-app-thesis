@@ -24,25 +24,27 @@ There are several tools to learn stereometry without the assistance of a compute
 
 The objective of the thesis is to design and implement a desktop application which helps the user learn stereometry.
 
-Nowadays, web applications are more popular than desktop applications. Despite that, desktop applications have some advantages:
+Nowadays, web applications are more popular than desktop applications. Despite that, desktop applications:
 \begin{itemize}
-    \item Desktop apps do not require an internet connection after installation, while web apps require constant connection to the server hosting the service.
-    \item Desktop apps are faster and more responsive as no data needs to be transfered between the client computer and a remote server.
-    \item Desktop apps give the user control over software updates - the user may use an older version if desired.
+    \item do not require an internet connection after installation, while web applications require constant connection to the server hosting the service,
+    \item are faster and more responsive as no data needs to be transfered between the client computer and a remote server,
+    \item give the user control over software updates - the user may use an older version if desired.
 \end{itemize}
 
-The application will allow the user to solve solid geometry tasks, consequently expanding their skills and knowledge in this field.
+The application will allow the user to solve solid geometry tasks and create polyhedrons from vertices, consequently expanding their skills and knowledge in this field.
 Its target group is students aged 12 to 15.
-The appliication can be used as a didactic tool in the classroom to help the teacher in teaching stereometry.
-It can also be used at home by a student to practice stereometry outside the classroom.
+The application can be used as a didactic tool in the classroom to help the teacher in teaching stereometry.
+It can also be used at home by the student to practice stereometry outside the classroom.
 The application will feature tasks.
-A task will contain one or more three-dimensional figures. The user's goal is to calculate the total area and volume of said figures.
-After solving a task incorrectly, the user will receive a tip, to help them solve the task successfully.
-A database containing all mathematical formulas, as well as tips related to the tasks will be accessible.
-The user will have the possibility to change the task data and see how the shapes change dynamically.
-An important part of the application is its customizability - the user should be able to tweak the settings of the application as well as each task such that they get the best experience tailored to their needs.
+A task will contain one or more three-dimensional figures.
+Aa task will be split into several steps.
+Each step will require the user to  calculate one portion of the problem described by the task.
+After providing and incorrect answer, the user will receive a tip, to help them solve the task successfully.
+A module allowing the user to explore the tasks and view the correct answers will be available.
+In this module, the user will have the possibility to change the task data and see how the shapes change dynamically.
+An important part of the application is its customizability - the user should be able to tweak the settings of the application such that they get the best experience tailored to their needs.
 
-The application will be built using the Godot game engine. While designed primarily with video games in mind, it can be used to create other types of software. The application requires a modern graphical user interface (GUI) and 3D rendering capabilites. Godot provides a suite of tools which simplify working with both of those systems. Other solutions like Flutter and Electron were considered but ultimately rejected. They provide a wide array of tools for developing desktop applications but do not have first-class 3D rendering support which would make developing the application more difficult.
+The application will be built using the Godot game engine. While designed primarily with video games in mind, it can be used to create other types of software. The application requires a modern graphical user interface (GUI) and 3D rendering capabilites. Godot provides a suite of tools which simplify working with both of those systems. Other solutions like Flutter\footnote{\url{https://flutter.dev}} and Electron\footnote{\url{https://www.electronjs.org}} were considered but ultimately rejected. They provide a wide range of tools for developing desktop applications but do not have first-class 3D rendering support which would make developing the application more difficult.
 
 \section{Short description of chapters}
 
