@@ -1,8 +1,19 @@
 \chapter{Verification and validation}
 
-The application was tested only by the author.
-The application was tested by manually checking whether all implemented features work correctly.
-The application was tested on a laptop device with the following software and hardware configuration:
+Testing is an important part of the software development process.
+Software testing is a process whose goal is to make sure that the tested software behaves as intended \cite{myers2011testing}.
+% Its purpose is to detect bugs and verify that the software fulfills its specified requirements.
+Testing helps ensure that the system behaves as expected under both normal and exceptional conditions.
+
+Software testing can be divided into several categories, such as unit testing, integration testing, and system testing \cite{gfg_testing}.
+In addition, user-oriented testing focuses on validating usability and overall behavior of the application.
+
+Due to the scope and nature of the project, testing mainly focused on system testing and manual testing of the application functionality.
+Testing was performed iteratively throughout the development.
+Individual features were tested after being implemented to verify that they function correctly and do not break existing functionality.
+
+The application was tested only by the author of the thesis.
+Due to limited access to other devices, the application was only tested on a laptop device with the following software and hardware configuration:
 
 \bigskip
 
@@ -13,7 +24,10 @@ The application was tested on a laptop device with the following software and ha
     Operating system & Windows 11 \\
 \end{tabularx}
 
-\section{Found and fixed bugs}
+\section{Identified bugs}
+
+During testing, several bugs were identified and resolved.
+This section describes selected bugs that were discovered, their causes, and the applied fixes.
 
 \subsection{Unintentional camera zooming}
 
@@ -62,20 +76,36 @@ if move_left:
     position = position.rotated(Vector3.DOWN, rotate_amount)
 if move_right:
     position = position.rotated(Vector3.UP, rotate_amount)
-
 \end{lstlisting}
 
-% \subsection{Incorrect informational label positioning and }
 \subsection{Issues related to edge cylinder transform}
 
-A bug was discovered when testing solids whose center was sufficiently far away from the origin.
+A bug was discovered when testing a polyhedron whose center was sufficiently far away from the origin.
 The bug caused the informational labels to be in incorrect positions.
 Vertical edge cylinders were visibly thinner compared to the rest.
 
-The issue was caused by an incorrect implementation of the edge cylinder positioning logic.
-The label's position is calculated as an extension of the edge cylinder's \textit{right vector}.
-The right vector is the normal vector in the object's local coordinate system.
+The issue was caused by an incorrect implementation of the edge cylinder rotation logic.
+The rotation of an edge cylinder is set using a 3x3 basis matrix.
+Originally, the basis matrix was calculated with the assumption that the center of the polyhedron was in the origin of the global coordinate system.
+The result appeared correct for solids whose center was close to the origin of the global coordinate system.
+As the solid got further away from the origin, the error became more apparent.
 
+The bug was fixed by correctly calculating the center of the polyhedron.
+In the fixed version, the center of the polyhedron is calculated as the average position of all of its vertices.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{graf/testing/basis_pre}
+    \caption{Before the fix. Labels appear in incorrect positions. Vertical edges of the top cube are slightly thinner than the rest.}
+    \label{basis_pre}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{graf/testing/basis_post}
+    \caption{After the fix.}
+    \label{basis_post}
+\end{figure}
 
 % \begin{itemize}
 % \item testing paradigm (eg V model)

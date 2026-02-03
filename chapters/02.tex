@@ -1,5 +1,22 @@
 \chapter{Problem analysis}
 
+Stereometry is an essential part of mathematics education.
+It develops a student's ability to understand and reason about three-dimensional space.
+Knowledge of stereometry is important not only for further studies in mathematics, but also for fields such as physics, engineering, architecture, and computer science.
+In those fields, spatial thinking and geometric reasoning are frequently required.
+Through the study of three-dimensional solids, students learn to work with concepts such as volume, surface area, and spatial relationships between objects.
+
+Despite its importance, stereometry is often regarded as a difficult subject by students.
+One of the main challenges lies in the need to imagine three-dimensional objects based on two-dimensional representations.
+Two-dimensional representations include drawings on a board or in a textbook.
+Static images and traditional teaching methods may not sufficiently convey the spatial structure of solids.
+This may lead to poor understanding and memorization without true comprehension.
+
+An interactive application capable of visualizing three-dimensional solids can help with these difficulties.
+By allowing users to observe objects from different perspectives, inspect their components, and manipulate their parameters, such an application supports the development of spatial imagination.
+Visual feedback enables students to better understand how changes in dimensions or structure affect the properties of a solid.
+This strengthens the connection between geometric theory and its practical interpretation.
+
 \section{Mathematical description of selected solids}
 
 \subsection{Prism}
@@ -8,22 +25,23 @@ A prism is a polyhedron consisting of two congruent \emph{n}-sided polygon bases
 A prism is called after its base, e.g. a prism with a hexagonal base is called a hexagonal prism.
 An \emph{n}-gonal prism has $n + 2$ faces, $3n$ edges, and $2n$ vertices.
 
-\subsubsection{Special cases}
+\subsubsection*{Special cases}
 
 An \emph{oblique prism} is a prism whose joining faces are not perpendicular to the bases.
 A prism whose whose joining faces are perpendicular to the bases is a \emph{right prism}.
 
-A right prism with a rectangular base is also called a \emph{cuboid}.
+A right prism with a rectangular base is also called a \emph{cuboid} (see figure \ref{prism}).
 A right prism with a square base is also called a \emph{square cuboid}.
 A square cuboid whose height is equal to the side length of its base is a \emph{cube}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{graf/prism}
     \caption{A right prism with a rectangular base.}
+    \label{prism}
 \end{figure}
 
-\subsubsection{Properties}
+\subsubsection*{Properties}
 
 \paragraph{Volume}
 
@@ -49,21 +67,23 @@ A pyramid is a polyhedron consisiting of one polygonal base face connected to a 
 Each of the base's edges is connected to the apex, forming a triangle, called a lateral face.
 A pyramid with an \emph{n}-gonal base has $n + 1$ faces, $2n$ edges, and $n + 1$ vertices.
 
-\subsubsection{Special cases}
+\subsubsection*{Special cases}
 
 A pyramid is called a \emph{regular pyramid} when its base is a regular polygon.
 The definition of a \emph{right pyramid} varies between sources.
 Some sources define it as a regular pyramid whose height falls on the center of the base \cite{gottwald2012vnr}.
 According to other sources, a right pyramid is a pyramid, whose height falls on the center of a circle circumscribed about the pyramid's base \cite{polya1990mathematics}.
+A right pyramid with a hexagonal base can be seen in figure \ref{pyramid}.
 A pyramid with a triangular base is also called a \emph{tetrahedron}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{graf/pyramid}
     \caption{A right pyramid with a hexagonal base.}
+    \label{pyramid}
 \end{figure}
 
-\subsubsection{Properties}
+\subsubsection*{Properties}
 
 \paragraph{Volume}
 
@@ -73,7 +93,7 @@ The formula for the volume is:
 \begin{equation}
     V = \frac{1}{3} B h,
 \end{equation}
-where \emph{B} is the base area and \emph{h} is the height.
+where \emph{B} is the base area and \emph{h} is the height \cite{lang_murrow_geometry}.
 
 \paragraph{Surface area}
 
@@ -84,33 +104,28 @@ Each regular \emph{n}-gon can be divided into \emph{n} congruent triangles.
 The base of the triangle is the side \emph{s} of the pyramid.
 The triangle's height $h_{B}$ is calculated as:
 \begin{equation}
-    h_{B} = \frac{1}{2} s \tan (\frac{n-2}{n}90^{\circ})
+    h_{B} = \frac{1}{2} s \tan (\frac{n-2}{n}90^{\circ}).
 \end{equation}
 Then, the polygon base area can be calculated by multiplying the area of one triangle by the number of sides:
 \begin{equation}
 \begin{split}
-    A_{B} & = \frac{s h_{B}}{2} n \\
-    & = \frac{1}{2} s (\frac{1}{2} s \tan (\frac{n-2}{n}90^{\circ})) n \\
-    & = \frac{1}{4} s^2 \tan (\frac{n-2}{n}90^{\circ}) n
+    A_{B} & = \frac{s h_{B}}{2} n.
 \end{split}
 \end{equation}
 Height of lateral triangles can be obtained by using the Pythagorean theorem:
 \begin{equation}
-    h_{L} = \sqrt{{h_{B}}^2 + h^2}
+    h_{L} = \sqrt{{h_{B}}^2 + h^2}.
 \end{equation}
 The lateral area is calculated in a similar way to the base area:
 \begin{equation}
 \begin{split}
-    A_{L} & = \frac{s h_{L}}{2} n \\
-    & = \frac{s \sqrt{{h_{B}}^2 + h^2}}{2} n
+    A_{L} & = \frac{s h_{L}}{2} n.
 \end{split}
 \end{equation}
 Finally, the total area is the sum of the base area and the lateral area:
 \begin{equation}
 \begin{split}
-    A  & = A_{B} + A_{L} \\
-    & = \frac{1}{4} s^2 \tan (\frac{n-2}{n}90^{\circ}) n + \frac{s \sqrt{{h_{B}}^2 + h^2}}{2} n \\
-    & = \frac{1}{2} s n (\frac{1}{2} s \tan (\frac{n-2}{n}90^{\circ}) + \sqrt{{h_{B}}^2 + h^2})
+    A  & = A_{B} + A_{L}.
 \end{split}
 \end{equation}
 
@@ -120,17 +135,19 @@ Finally, the total area is the sum of the base area and the lateral area:
 \subsection{GeoGebra 3D Calculator}
 
 The 3D Calculator\footnote{\url{https://www.geogebra.org/3d}} by GeoGebra is an extensive application which provides many tools for exploring 3D geometry.
-It allows the user to create and manipulate solids, points, lines and polygons.
-It also provides tools for measuring angles, distances, areas and volumes.
+It allows the user to create and manipulate solids, points, lines, and polygons.
+It also provides tools for measuring angles, distances, areas, and volumes.
 The 3D Calculator can be of great help when exploring stereometry, but it does not provide didactic features.
 It is not suited for structured, guided learning. The measuring tools allow the user to calculate certain characteristics but do not teach how to do so.
 GeoGebra 3D Calculator does not provide support for keyboard control, the mouse being the only allowed input method.
 The application is only available on web and mobile platforms with no downloadable version for desktop computers.
+The user interface of the GeoGebra 3D Calculator is visible in figure \ref{geogebra3d}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{graf/geogebra_3d}
     \caption{GeoGebra 3D Calculator.}
+    \label{geogebra3d}
 \end{figure}
 
 \subsection{Cabri 3D and Cabri Express}
@@ -143,17 +160,19 @@ Cabri products are closed-source, which means that the software will no longer b
 \subsubsection*{Cabri 3D}
 
 Cabri 3D is an application for the Windows and Mac OS operating systems.
-It is commencial software which requires the purchase of a license.
+It is commercial software which requires the purchase of a license.
 The application is used primarily to create documents consisting of text areas and 3D views.
 This makes it suitable to be used by teachers to prepare lesson materials, which can be printed on paper.
 It is not suited to by used by students to explore 3D geometry or solve tasks.
 The user inteface has an outdated look and has some bugs when running on a system with multiple displays.
 When running on a system with two displays, the \emph{Tool Help} window produces visual artifacts on the other display when it is moved.
+The user interface of Cabri 3D is visible in figure \ref{cabri3d}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{graf/cabri_3d}
     \caption{Cabri 3D.}
+    \label{cabri3d}
 \end{figure}
 
 % https://cabri.com/en/instructor/cabri-express/
@@ -165,11 +184,13 @@ This, combined with it being closed-source introduces a problem.
 If one doesn't find the desired 3D tool in Cabri Express, it may never be added by the developers.
 Learning how to use the applications may be problematic, as most of the official tutorials for the applications are in French.
 Moreover, there are few unofficial learning resources in other languages.
+The user interface of Cabri Express is visible in figure \ref{cabriexpress}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{graf/cabri_express}
     \caption{Cabri Express.}
+    \label{cabriexpress}
 \end{figure}
 
 \subsection{Shapes 3D Geometry Learning \& Drawing}
@@ -186,15 +207,17 @@ Unfortunately, the author of the thesis was unable to run the Shapes 3D Geometry
 Shapes 3D Geometry Learning is available on all major desktop and mobile operating systems.
 The target group of the application is students of grades 4-6.
 The application allows the user to select from a set of predefined solids.
-When a solid is selected, the user can view its edges, faces and vertices.
+When a solid is selected, the user can view its edges, faces, and vertices.
 The solid can be unfolded it into a net. The user may also build the net themself, using the solid's faces.
 The net can be printed and subsequently cut out of the paper, to create a paper net.
 The paper net can be glued to obtain a paper version of the solid displayed in the application.
+The user interface of Shapes 3D Geometry Learning is visible in figure \ref{shapeslearning}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{graf/shapes_3d_learning}
     \caption{Shapes 3D Geometry Learning.}
+    \label{shapeslearning}
 \end{figure}
 
 % https://shapes.learnteachexplore.com/shapes-3d-geometry-drawing/
@@ -205,11 +228,13 @@ The target group of the application is students of grades 7-8.
 It has a user interface and application structure similar to Shapes 3D Geometry Learning.
 The main differences is the tools available when a solid is selected.
 Shapes 3D Geometry Drawing allows the user to place line segments and cross sections between points on the solid's faces.
+The user interface of Shapes 3D Geometry Drawing, along with the error that appears,, is visible in figure \ref{shapesdrawing}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{graf/shapes_3d_drawing}
     \caption{Shapes 3D Geometry Drawing. An error occurs when trying to run the demo.}
+    \label{shapesdrawing}
 \end{figure}
 
 \subsubsection*{Summary of Shapes 3D applications}

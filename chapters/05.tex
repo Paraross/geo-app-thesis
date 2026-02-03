@@ -16,25 +16,20 @@ A scene is a tree of nodes which can be instantiated multiple times.
 For instance, a simple scene representing a 3D object may be composed of an \texttt{Area3D} as the root node with a \texttt{CollisionShape3D} and a \texttt{MeshInstance3D} as its children.
 Such a scene scene would represent a 3D object which has a mesh and a collider.
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.5]{graf/single_node}
-    \caption{A single \texttt{MeshInstance3D} node.}
-\end{figure}
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.5]{graf/simple_scene}
-    \caption{A simple 3D object scene. The red node is the root node of the scene.}
-    \label{simple_scene}
-\end{figure}
-
 \section{GeoApp structure}
 
 As with any Godot project, the \texttt{root} node is the top-level node which contains the entirety of the application.
 In this project, the root node contains two logical parts.
 The first and most important part is the \texttt{Main} scene.
 The other part are the \textit{autoloads}.
+Figure \ref{app_structure} shows the complete structure of the application.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{graf/app_structure}
+    \caption{The complete application structure starting from the \texttt{root} node.}
+    \label{app_structure}
+\end{figure}
 
 \section{The Main scene}
 
@@ -43,7 +38,7 @@ It is composed of all of the UI screens.
 One of its children is the background of the application.
 Figure \ref{main_scene} shows the structure of the \texttt{Main} scene.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graf/main_scene}
     \caption{The Main scene.}
@@ -58,10 +53,9 @@ A screen's script is responsible for the internal logic of the screen.
 
 \section{Autoloads}
 
-% TODO: jakas cytacja do design patternow?
-Autoloads are Godot's implementation of the singleton design pattern.
-An autoload is a node which is loaded when the application starts.
-The members of an autoload are accessible from every node in the scene tree.
+Autoloads are Godot's implementation of the Singleton design pattern \cite{gamma1994design}.
+The Singleton pattern ensures that a class has exactly one instance and provides a global point of access to it.
+In the application, autoloaded scripts are used to store shared state and functionality that must be accessible from multiple scenes.
 The autoloads used in GeoApp are:
 \begin{itemize}
     \item \texttt{Global} - contains utility functions related to rounding of floating-point values and clearing of UI grids.
@@ -70,22 +64,16 @@ The autoloads used in GeoApp are:
     \item \texttt{Tasks} - is responsible for loading all of the tasks.
 \end{itemize}
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.5]{graf/app_structure}
-    \caption{The complete application structure starting from the \texttt{root} node.}
-    \label{app_structure}
-\end{figure}
-
 \section{Signals}
 
-Signals are Godot's implementation of the Observer design pattern.
+Signals are Godot's implementation of the observer design pattern \cite{freeman2020head}.
+The Observer pattern defines a one-to-many dependency between objects, where changes in one object automatically notify and update dependent objects.
+Signals are used in the application to decouple user interface elements from application logic.
+
 Each node defines a set of signals.
-These signals can be connected to a node's method.
-This node may be any node in the scene tree, including the node which exposes the signal.
+These signals can be connected to a script's method.
 The method is called when the signal is emitted.
 A signal is emitted when the action associated with it happens.
-
 For example, a \texttt{Button} node's \texttt{pressed} signal is emitted when the button is pressed.
 The signal may be connected to a \texttt{\_on\_button\_pressed} method which will be called whenever the button is pressed.
 The script containing the \texttt{\_on\_button\_pressed} method may be attached to any node, including the button itself.
@@ -96,19 +84,27 @@ A node does not have to know where it is in the scene tree when communication wi
 \section{Representation of solids}
 
 Each solid in the application is represented by a scene.
-The structure of the scene similiar to the one in figure \ref{simple_scene}.
+The structure of the scene is similiar to the one in figure \ref{simple_scene}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{graf/simple_scene}
+    \caption{A simple 3D object scene. The red node is the root node of the scene.}
+    \label{simple_scene}
+\end{figure}
+
 The difference is that the type of the root node is a class which inherits from the custom \texttt{Figure} class.
-For example, the root node of the cube scene if of the \texttt{Cube} type.
+For example, the root node of the cube scene is of the \texttt{Cube} type.
 
 \subsection{Figure}
 
 The \texttt{Figure} class is the base class of each solid.
 It:
 \begin{itemize}
-    \item Stores the mesh and the collision shape,
-    \item Handles behavior that is triggered when the solid is hovered,
-    \item Contains the \texttt{area} and \texttt{volume} methods,
-    \item Emits signals when the properties of the solid change.
+    \item stores the mesh and the collision shape,
+    \item handles behavior that is triggered when the solid is hovered,
+    \item contains the \texttt{area} and \texttt{volume} methods,
+    \item emits signals when the properties of the solid change.
 \end{itemize}
 
 \subsection{Polyhedron}
@@ -132,80 +128,102 @@ For a triangle with vertices $v_1$, $v_2$, and $v_3$, its area $A$ is calculated
     A = \frac{1}{2} \left\| (v_2 - v_1) \times (v_3 - v_1) \right\|.
 \end{equation}
 The total face area is the sum of the areas of all triangles.
+Algorithm \ref{area_computation} shows the algorithm used to calculate the area of one polyhedron face.
 
 \begin{algorithm}[H]
-\caption{Face area computation}
-\begin{algorithmic}
-\State $area \gets 0$
-\For{$i \gets 1$ to $n - 2$}
-    \State $v_1 \gets vertices[0]$
-    \State $v_2 \gets vertices[i]$
-    \State $v_3 \gets vertices[i+1]$
-    \State $area \gets area + \frac{1}{2} \left\| (v_2 - v_1) \times (v_3 - v_1) \right\|$
-\EndFor
-\State \Return $area$
-\end{algorithmic}
+    \caption{Face area computation}
+    \begin{algorithmic}
+    \State $area \gets 0$
+    \For{$i \gets 1$ to $n - 2$}
+        \State $v_1 \gets vertices[0]$
+        \State $v_2 \gets vertices[i]$
+        \State $v_3 \gets vertices[i+1]$
+        \State $area \gets area + \frac{1}{2} \left\| (v_2 - v_1) \times (v_3 - v_1) \right\|$
+    \EndFor
+    \State \Return $area$
+    \end{algorithmic}
+    \label{area_computation}
 \end{algorithm}
 
 \subsubsection{Volume}
 
-The volume of a polyhedron can be calculated by dividing it into pyramids.
+The volume of a polyhedron can be calculated by dividing it into pyramids \cite{poly_volume}.
 For each face of the polyhedron, the algorithm computes the volume of the pyramid associated with the face.
-The base of the pyramid is the corresponding face.
-Let $q$ be any of the face's vertices, $n$ the surface normal of the face and $A$ the surface area of the face.
-The dot product of $q$ and $n$ is equal to the pyramid's height.
+Let $q$ be any of the face's vertices, $n$ the surface normal of the face, and $A$ the surface area of the face.
 The volume $V_P$ of the pyramid is given by the formula:
 \begin{equation}
-    V_P = \frac{1}{3}(q \cdot n) \cdot A
+    V_P = \frac{1}{3}(q \cdot n) \cdot A.
 \end{equation}
 The total volume of the polyhedron is the sum of all of the pyramid volumes.
 This approach assumes that the polyhedron is closed and that all face normals point outward.
+Algorithm \ref{volume_computation} shows the algorithm used to calculate the volume of a polyhedron.
 
 \begin{algorithm}[H]
-\caption{Polyhedron volume computation}
-\begin{algorithmic}
-\State $V \gets 0$
-\For{each face $f$ in faces}
-    \State Select three vertices $v_1$, $v_2$, $v_3$ from $f$
-    \State $n \gets \text{normalize}((v_3 - v_1) \times (v_2 - v_1))$
-    \State $A \gets \text{area}(f)$
-    \State $q \gets v_1$
-    \State $V \gets V + \frac{1}{3}(q \cdot n) \cdot A$
-\EndFor
-\State \Return $V$
-\end{algorithmic}
+    \caption{Polyhedron volume computation}
+    \begin{algorithmic}
+    \State $V \gets 0$
+    \For{each face $f$ in faces}
+        \State Select three vertices $v_1$, $v_2$, $v_3$ from $f$
+        \State $n \gets \text{normalize}((v_3 - v_1) \times (v_2 - v_1))$
+        \State $A \gets \text{area}(f)$
+        \State $q \gets v_1$
+        \State $V \gets V + \frac{1}{3}(q \cdot n) \cdot A$
+    \EndFor
+    \State \Return $V$
+    \end{algorithmic}
+    \label{volume_computation}
 \end{algorithm}
 
 \section{Tasks}
 
 Each task is a scene whose root node is of a type derived from the \texttt{Task} class.
-The \texttt{Task} class defines methods for the task difficulty, description, parameters and steps.
+The \texttt{Task} class defines methods for the task difficulty, description, parameters, and steps.
 Each derived task class then overrides those methods to create a unique task.
 The only children of the task scene's root node are the the solids that make up the task.
+Figure \ref{tasks_diagram} shows the diagram of the \texttt{Task} class, classes derived from it, and other related classes.
 
-\begin{figure}[hb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graf/tasks_diagram}
     \caption{Task class diagram. Less important class members were omitted for conciseness.}
     \label{tasks_diagram}
 \end{figure}
 
+\begin{itemize}
+    \item \textit{TaskFloatValue} represents a task parameter.
+        Each instance specifies the current, minimum, and maximum value as well the precision with which the value is randomly picked.
+    \item \textit{Step} represents a single task step.
+    \item \textit{Task} is the base class for all tasks.
+    \item \textit{CubeTaskBase} is the base class of \textit{CubeTask} and \textit{CubeTaskMediumPrecision}.
+    \item \textit{CubeTask} corresponds to the \textit{Cube} task.
+    \item \textit{CubeTaskMediumPrecision} corresponds to the \textit{Cube With Decimal Digits} task.
+    \item \textit{PrismTaskBase} is the base class of \textit{PrismTask} and \textit{PrismTaskMediumPrecision}.
+    \item \textit{PrismTask} corresponds to the \textit{Prism} task.
+    \item \textit{PrismTaskMediumPrecision} corresponds to the \textit{Prism With Decimal Digits} task.
+    \item \textit{CuboidTask} corresponds to the \textit{Cuboid} task.
+    \item \textit{HexagonalPyramidTask} corresponds to the \textit{Hexagonal Pyramid} task.
+    \item \textit{PyramidTask} corresponds to the \textit{Pyramid} task.
+    \item \textit{PyramidAreaTask} corresponds to the \textit{Pyramid Area} task.
+        It features the same parameters but overrides the \texttt{steps} method.
+    \item \textit{StackedCubesTask} corresponds to the \textit{Stacked Cubes} task.
+\end{itemize}
+
 \section{User interface}
 
 User interface in Godot is created with the use of \texttt{Control} nodes.
-Contol nodes used in GeoApp may be split into three categories: containers, interactive elements and labels.
+Contol nodes used in GeoApp may be split into three categories: containers, interactive elements, and labels.
 Containers contain other UI elements and are responsible for their layout.
 They are nodes that derive from the \texttt{Container} class.
 There are many types of containers.
 Each type of container lays out its children in a different way.
 For instance, the \texttt{HBoxContainer} lays out its children horizontally.
-The \texttt{HBoxContainer} container lays out its children vertically.
+The \texttt{VBoxContainer} container lays out its children vertically.
 Other types of containers include the \texttt{GridContainer} and \texttt{ScrollContainer}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.33]{graf/hbox_layout}
-    \caption{A \texttt{Button}, \texttt{Label} and \texttt{SpinBox} in a \texttt{HBoxContainer}.}
+    \caption{A \texttt{Button}, \texttt{Label}, and \texttt{SpinBox} in a \texttt{HBoxContainer}.}
 \end{figure}
 
 \begin{figure}[ht]
@@ -248,6 +266,7 @@ The file stores a JSON array of vertex objects.
 A vertex object is a JSON object with name-value pairs defined in table \ref{vertex_object_fields}.
 A vertex object can contain other name-value pairs.
 Name-value pairs other than the expected ones will be ignored.
+Listing \ref{sample_poly} contains the content of a polyhedron file which stores two vertices.
 
 \begin{table}[ht]
     \centering
@@ -269,9 +288,9 @@ Name-value pairs other than the expected ones will be ignored.
     \end{tabular}
 \end{table}
 
-\newpage
+% \newpage
 
-\begin{lstlisting}[basicstyle=\ttfamily, showstringspaces=false, caption=The content of a polyhedron file containing two vertices.]
+\begin{lstlisting}[basicstyle=\ttfamily, showstringspaces=false, caption=The content of a polyhedron file containing two vertices., label=sample_poly]
 [
   {
     "name": "Vertex 1",
@@ -293,7 +312,7 @@ Name-value pairs other than the expected ones will be ignored.
 Godot does not enforce a strict file structure.
 Any file can be placed anywhere in the project directory or its subdirectories.
 Despite that, files were organized into subdirectories to group them logically and reduce the size of the main directory.
-The project directory is divided into three subdirectories: \texttt{assets}, \texttt{scenes} and \texttt{scripts}.
+The project directory is divided into three subdirectories: \texttt{assets}, \texttt{scenes}, and \texttt{scripts}.
 Visually, the project file structure looks like:
 \dirtree{%
 .1 GeoApp.

@@ -1,57 +1,89 @@
 \chapter{Requirements and tools}
 
+This chapter defines the requirements for the developed application.
+The requirements describe both the functionality provided to the user and the properties the application must satisfy.
+They serve as a basis for the design and implementation of the application.
+
 \section{Functional requirements}
 
+Functional requirements describe the behavior and capabilities of the application from the user's perspective.
+They specify what the application is expected to do, which features it must provide, and how the user can interact with the system.
+In the context of this thesis, the functional requirements focus primarily on the visualization, manipulation, and educational use of three-dimensional geometric objects.
+The functional requirements of the application are:
+
 \begin{description}
-    \item[Visualization of 3D objects] The application will be able to display three-dimensional solids (e.g. cube, prism, sphere, cylinder).
-        The camera will allow for rotation and zooming.
-    \item[Inspection of solids] When hovering on a solid, its vertices or edges, the object will be highlighted to visually indicate that it is selected.
-        Upon clicking a selected object, an informational label will appear.
-        The informational label will contain information related to the object, e.g. the position of a vertex or the length of an edge.
-    \item[Manipulation of solids] The application will allow the user to change the parameters of tasks.
-        The changes in parameters will be reflected in the 3D view.
-        The application will contain a module which will allow for creation and manipulation of custom polyhedrons.
-    \item[Educational support] The application will contain a task module.
-        There will be a number of predefined tasks from the field of stereometry with varying degrees of difficulty.
-        Each task will be divided into steps. Each step will involve calculation of one portion of the problem described by the task.
-    \item[User interface] The application will provide an intuitive graphical user interface.
+    \item[Visualization of 3D objects]
+        The application will be able to display three-dimensional geometric solids, such as cubes, prisms, spheres, and cylinders.
+        The displayed objects will be rendered in a three-dimensional scene that allows the user to clearly perceive their shape and spatial properties.
+        The camera will support rotation around the scene and zooming, enabling observation of objects from different angles and distances.
+    \item[Inspection of solids]
+        The application will allow the user to inspect individual components of displayed solids.
+        When hovering over a solid or its elements, such as vertices or edges, the corresponding object will be visually highlighted to indicate that it is selected.
+        Upon clicking a selected object, an informational label will be displayed.
+        The label will present relevant geometric information, for example the coordinates of a vertex or the length of an edge.
+    \item[Manipulation of solids]
+        The application will allow the user to modify parameters related to geometric tasks and objects.
+        Any changes in parameters will be immediately reflected in the three-dimensional view, providing visual feedback.
+        The application will include a module for creating and manipulating custom polyhedrons, allowing the user to define their shape and structure.
+    \item[Educational support]
+        The application will include a task module containing a set of predefined stereometry problems with varying levels of difficulty.
+        Each task will be divided into individual steps.
+        Each step will focus on the computation of a specific part of the solution.
+        In addition, the application will provide a playground module that allows users to freely experiment with three-dimensional geometry.
+        Within this module, users will be able to create polyhedrons by specifying a list of vertices, save the created polyhedrons to files, and later load them to restore the saved state.
+    \item[User interface]
+        The application will provide an intuitive graphical user interface.
         The application will support mouse and keyboard interaction.
-        User interface elements will include tooltips to help the user understand how the application works.
+        User interface elements will include tooltips and visual cues to help users understand the available controls and functionality.
 \end{description}
 
 \section{Non-functional requirements}
 
+Non-functional requirements describe the quality attributes and constraints of the application.
+They do not define specific features, but instead specify how well the application should perform and under what conditions it should operate.
+These requirements ensure that the application is reliable and suitable for its intended educational purpose.
+The non-functional requirements of the application are:
+
 \begin{description}
-    \item[Usability] The user interface will be straightforward to use and understand.
-        It will not be required for the user to be familiar with other 3D software to use the application effectively.
-        % Language within the application will be simple and use terms consistent with those use in mathematics education.
-    \item[Performance] The application will perform well on hardware capable of smoothly running other similar applications.
-        There will be no noticeable stutters and delays when interacting with the application.
-    \item[Reliability] The application will not crash during runtime and gracefully handle invalid input.
-    \item[Correctness] The application will correctly calculate all characteristics of 3D objects.
-    \item[Maintainability] The application code will be open-source.
-        The application will be structured in a way allowing easy future extension in the form of new tasks and features.
-    \item[Security] The application will not require internet access after installation.
-        Manual editing of files used by the application will not compromise security.
-    \item[Educational suitability] The application will be suited for use in the classroom and at home.
-        The provided tasks will be comparable to tasks from a school stereometry curriculum.
+    \item[Usability]
+        The user interface will be designed to be easy to use and understand.
+        Users will not be required to have prior experience with 3D modeling software in order to effectively use the application.
+        The interface will aim to minimize unnecessary complexity and cognitive load.
+    \item[Performance]
+        The application will provide smooth interaction on hardware capable of running similar three-dimensional educational applications.
+        Camera movement, object manipulation, and user interaction will not cause noticeable stuttering or delays during normal operation.
+    \item[Reliability]
+        The application will operate reliably during runtime and will not crash under normal usage conditions.
+        Invalid or unexpected user input will be handled gracefully without causing application failure.
+    \item[Correctness]
+        The application will correctly compute geometric properties of 3D objects, such as lengths, areas, and volumes.
+    \item[Maintainability]
+        The application source code will be published as open-source.
+        The internal structure of the application will support future extension.
+        Extension will be possible in the form of new stereometry tasks, new geometric objects, or additional features.
+    \item[Security]
+        The application will not require internet access after installation.
+        Files created or used by the application can be manually edited without compromising system security or application stability.
+    \item[Educational suitability]
+        The application will be suitable for use both in classroom environments and for individual study at home.
+        The provided tasks will correspond to typical problems found in school-level stereometry curricula and support the learning process.
 \end{description}
 
 \section{Used tools}
 
 \subsection{Godot Engine}
 
-Godot\footnote{\url{https://godotengine.org}} is a cross-platform, free and open-source game engine.
-It is designed to create 2D and 3D games mainly for the PC (personal computer), mobile and web platforms.
+Godot\footnote{\url{https://godotengine.org}} is a cross-platform, free and open-source (FOSS) game engine.
+It is designed to create 2D and 3D games mainly for the PC (personal computer), mobile, and web platforms.
 Despite its main focus being the creation of games, it can be used to develop other types of software.
 
 The engine itself is written mostly in C++.
 The primary language used in Godot to create software is GDScript.
 Other than GDScript, C\# and C++ are also officially supported.
 Aside from the officially supported languages, support for other languages is provided by community extensions.
-Some of the community-supported languages are Rust, Swift and Java.
+Some of the community-supported languages are Rust, Swift, and Java.
 
-Godot introuduces the concept of \textit{nodes}.
+Godot introduces the concept of \textit{nodes}.
 A node is the basic building block of the application.
 A node encapsulates a specific functionality related to 2D or 3D graphics, user interface, etc.
 Nodes are organized in a tree structure.
@@ -71,7 +103,7 @@ Neovim\footnote{\url{https://neovim.io}} is a modern and open-source text editor
 Neovim was used as the primary editor for the application's source code.
 
 Neovim provides features which include syntax highlighting and code completion.
-Plugins add additional functionality which increases the speed of editing, refactoring and navigation in the codebase.
+Plugins add additional functionality which increases the speed of editing, refactoring, and navigation in the codebase.
 
 The support for Godot projects in Neovim is enabled by the Language Server Protocol (LSP) \cite{lspbook}.
 The Godot editor runs an LSP server process to which Neovim connects.
@@ -79,9 +111,9 @@ This provides features like syntax highlighting and code completion for GDScript
 
 \subsection{Git and GitHub}
 
-Git\footnote{\url{https://git-scm.com}} is a free and open-source distributed version control system \cite{progit}.
+Git\footnote{\url{https://git-scm.com}} is a FOSS distributed version control system \cite{progit}.
 It is used to track changes in files during software development.
-It allows developers to track the complete history of changes, revert to previous versions and manage development in a team.
+It allows developers to track the complete history of changes, revert to previous versions, and manage development in a team.
 
 In this project, Git was used to manage project files during the development.
 It allowed for tracking of changes and easy rollback in situations where new changes introduced issues.

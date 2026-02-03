@@ -3,7 +3,8 @@
 \section{System requirements}
 
 A PC (personal computer) is required to run the application.
-The application can run on the Windows, macOS and Linux operating systems.
+Versions of the application were prepared for the Windows, macOS, and Linux operating systems.
+Due to hardware limitations, only the version for the Windows operating system was tested.
 The application requires approximately 100 MB of storage space.
 The application was tested on a laptop device with the following software and hardware configuration:
 
@@ -69,50 +70,52 @@ The user may then optionally move the extracted \textbf{GeoApp.app} file to the 
 To start the application, the user should run the \textbf{GeoApp.app} application.
 
 Since the application is not digitally signed, a security warning may appear when the application is started for the first time.
-When this happens, the user can start the application by right-clicking the \textbf{GeoApp.app} file, selecting \textbf{Open} and confirming the dialog.
+When this happens, the user can start the application by right-clicking the \textbf{GeoApp.app} file, selecting \textbf{Open}, and confirming the dialog.
 Alternatively, the application can be allowed in the system settings under \textbf{Privacy \& Security}.
 
 \section{User manual}
 
-The application consists of several modules, namely \textit{task exploration}, \textit{task solving} and the \textit{playground}.
+The application consists of several modules, namely \textit{task exploration}, \textit{task solving}, and the \textit{playground}.
 Each module provides different ways for the user to learn stereometry.
 
 \subsection{Main menu}
 
 Upon starting the application, the user sees the main menu.
+The main menu is visible in figure \ref{main_menu}.
 The main menu is a central hub from which the rest of the application can be accessed.
-The main menu contains several button used to navigate the application.
+The main menu contains several button used to navigate the application:
 \begin{itemize}
-    \item The \textbf{Explore tasks} button takes the user to the task exploration module,
-    \item The \textbf{Solve tasks} button takes the user to the task solving module,
-    \item The \textbf{Playground} button takes the user to the playground module,
-    \item The \textbf{Settings} button takes the user to the settings,
-    \item The \textbf{Quit} button closes the application.
+    \item the \textbf{Explore tasks} button presents the user with the task exploration module,
+    \item the \textbf{Solve tasks} button presents the user with the task solving module,
+    \item the \textbf{Playground} button presents the user with the playground module,
+    \item the \textbf{Settings} button presents the user with the settings screen,
+    \item the \textbf{Quit} button closes the application.
 \end{itemize}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{graf/main_menu}
     \caption{The main menu of the application.}
+    \label{main_menu}
 \end{figure}
 
 \subsection{The 3D view}
 
-The 3D view is a part of the task exploration, task solving and playground modules.
+The 3D view is a part of the task exploration, task solving, and playground modules.
 When the 3D view is visible, the user can interact with it.
 
 The camera of the 3D view can be moved.
 The camera orbits the center of the coordinate system and always looks looks in its direction.
-The camera can be rotated up, down, left and right with the \textbf{W}, \textbf{S}, \textbf{A} and \textbf{D} keys respectively.
+The camera can be rotated up, down, left, and right with the \textbf{W}, \textbf{S}, \textbf{A}, and \textbf{D} keys respectively.
 The camera can be zoomed in with the \textbf{E} key and zoomed out with the \textbf{Q} key.
 
 When a solid is loaded in the 3D view, the user can inspect some of its properties.
 When an object (the solid, one of its vertices or one of its edges) is hovered overed by the mouse cursor, it becomes red.
-When a hovered vertex or edge is clicked, an informational label appears.
+When a hovered vertex or edge is clicked using the left mouse button, an informational label appears.
 The informational label for a vertex contains its position.
 In the playground module, the label also contains the name of the vertex.
 The informational label for an edge contains its length.
-When an object with a visible informational label is clicked, the informational label disappears.
+When an object with a visible informational label is clicked using the left mouse button, the informational label disappears.
 
 \begin{figure}[ht]
     \centering
@@ -146,11 +149,11 @@ Each screen, except for the main menu, features a navigation bar.
 The navigation bar appears above the main content of the current screen.
 The navigation bar contains five buttons:
 \begin{itemize}
-    \item The \textbf{Main menu} button transfers the user to the main menu,
-    \item The \textbf{Explore tasks} button transfers the user to the task exploration screen,
-    \item The \textbf{Solve tasks} button transfers the user to the task selection screen,
-    \item The \textbf{Playground} button transfers the user to the playground screen,
-    \item The button with the gear icon transfers the user to the settings screen.
+    \item the \textbf{Main menu} button presents the user with the main menu,
+    \item the \textbf{Explore tasks} button presents the user with the task exploration screen,
+    \item the \textbf{Solve tasks} button presents the user with the task selection screen,
+    \item the \textbf{Playground} button presents the user with the playground screen,
+    \item the button with the gear icon presents the user with the settings screen.
 \end{itemize}
 The button corresponding to the current screen is disabled.
 
@@ -181,16 +184,99 @@ Ordered from left to right, the user interface features:
         \begin{itemize}
             \item The description of what should be calculated for the step.
             \item A help button. The button shows a hint for its respective step when pressed.
-            \item A number control which displays the correct answer for its respective step.
+            \item A spin box\footnote{A spin box or spinner is a user interface element which allows the user to adjust a value using a text box or up and down arrows.} which displays the correct answer for its respective step.
         \end{itemize}
     \item A view of the selected task.
 \end{itemize}
+The default, empty state of the task exploration module is visible in figure \ref{explore_empty}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{graf/explore_tasks}
-    \caption{The task exploration module.}
+    \includegraphics[width=\textwidth]{graf/explore/empty}
+    \caption{Empty task exploration module.}
+    \label{explore_empty}
 \end{figure}
+
+The tasks can be filtered by name.
+Figure \ref{explore_filter} shows the task list being filtered.
+When the "cub" string is used as the filter, only the following tasks are shown: \textit{Cube}, \textit{Cuboid}, \textit{Cube With Decimal Digits}, \textit{Stacked Cubes}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/explore/filter}
+    \caption{Empty task exploration module. The "cub" task name filter is applied.}
+    \label{explore_filter}
+\end{figure}
+
+Figure \ref{explore_cube} shows the task exploration module with a task selected.
+The task features a cube.
+The task is divided into three steps.
+The first steps requires the user to calculate the area of a single face of the cube.
+The second step requires the user to calculate the cube's total area.
+The third step requires the user to calculate the cube's volume.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/explore/cube}
+    \caption{Task exploration module. The \textit{Cube} task is selected.}
+    \label{explore_cube}
+\end{figure}
+
+Figure \ref{explore_cube2} shows the task exploration module with a task selected.
+The selected task is the same as the one in figure \ref{explore_cube}.
+The \textit{Side} task parameter has a different value as compared to the one in figure \ref{explore_cube}.
+As a result, the cube in the 3D view appears bigger and correct answers for each step are different.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/explore/cube2}
+    \caption{Task exploration module. The \textit{Cube} task is selected. The task has a different parameter value as compared to the one visible in figure \ref{explore_cube}}
+    \label{explore_cube2}
+\end{figure}
+
+Figure \ref{explore_pyramid} shows the task exploration module with a task selected.
+The task features a pyramid with a hexagonal base.
+The task is divided into three steps.
+The first steps requires the user to calculate the area of a single triangle of the hexagonal base.
+The second step requires the user to calculate the area of the pyramid's base.
+The third step requires the user to calculate the pyramid's volume.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/explore/hex_pyramid}
+    \caption{Task exploration module. The \textit{Hexagonal Pyramid} task is selected.}
+    \label{explore_pyramid}
+\end{figure}
+
+% Figure \ref{explore_prism} shows the task exploration module with the \textit{Prism} task selected.
+Figure \ref{explore_prism} shows the task exploration module whose selected task features a prism.
+In figure \ref{explore_stacked_cubes}, the selected task features two cubes, with one stacked on top of the other.
+For both tasks, the list of steps is too long to fit on the screen.
+In this case, a scroll bar appears to make it possible to access the steps that are currently not visible.
+Figure \ref{explore_stacked_cubes2} shows the same task as figure \ref{explore_stacked_cubes} with the step list scroll bar in the lowest position.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/explore/prism}
+    \caption{Task exploration module. The \textit{Prism} task is selected.}
+    \label{explore_prism}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/explore/stacked_cubes}
+    \caption{Task exploration module. The \textit{Stacked Cubes} task is selected.}
+    \label{explore_stacked_cubes}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/explore/stacked_cubes2}
+    \caption{Task exploration module. The \textit{Stacked Cubes} task is selected. The step list is scrolled to the bottom.}
+    \label{explore_stacked_cubes2}
+\end{figure}
+
+\newpage
 
 \subsection{Task solving}
 
@@ -201,68 +287,137 @@ The task solving module is split into two parts.
 
 The first part is task selection.
 Here, the user selects the task they wish to solve.
+% Figure \ref{task_selection} shows the state of the task selection screen before the user selects a task.
+Figures \ref{task_selection} and \ref{task_selection_medium} show the state of the task selection screen before the user selects a task.
+Figure \ref{task_selection_selected} shows the state of the task selection screen when a task is selected.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{graf/task/selection}
+    \caption{The task selection screen. The easy difficulty is selected. No task is selected.}
+    \label{task_selection}
+\end{figure}
+
+\begin{figure}%[ht]
+    \centering
+    \includegraphics[width=\textwidth]{graf/task/selection_medium}
+    \caption{The task selection screen. The medium difficulty is selected. No task is selected.}
+    \label{task_selection_medium}
+\end{figure}
+
+\begin{figure}%[ht]
+    \centering
+    \includegraphics[width=\textwidth]{graf/task/selection_selected}
+    \caption{The task selection screen. The \textit{Cube} task is selected.}
+    \label{task_selection_selected}
+\end{figure}
+
 To select a task, the user must first select a difficulty.
 When a difficulty is selected, all available tasks with this difficulty are shown.
 Then, the user should select their desired task and press the \textbf{Start} button.
 The \textbf{Start} button can be pressed only when a task is selected.
-After pressing the \textbf{Start} button, the user is transported to the main part of the task solving module.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=\textwidth]{graf/task_filter}
-    \caption{Task selection.}
-\end{figure}
+After pressing the \textbf{Start} button, the user is presented with the main part of the task solving module.
 
 \newpage
 
-\subsubsection{Task solving}
+\subsubsection{The main part of the task solving module}
 
-The parameter values of the task are randomly picked from a predefined range.
-The range is defined on a per-parameter basis.
-The precision (the number of decimal digits of the value) is also defined on a per-parameter basis.
-Inside the main part of the task solving module, the user can find:
-\begin{itemize}
-    \item The view of the current task,
-    \item The description of the task,
-    \item The step navigation buttons,
-    \item The \textit{step container},
-    \item The \textbf{Check answer} button,
-    \item The \textbf{Get new task} button.
-\end{itemize}
-The \textit{step container} is the part of the UI responsible for displaying the task's steps.
-The step container looks similar to the one present in the task exploration module.
-Despite that, the two differ in several aspects.
+% The parameter values of the task are randomly picked from a predefined range.
+% The range is defined on a per-parameter basis.
+% The precision (the number of decimal digits of the value) is also defined on a per-parameter basis.
 
-First, the user can interact with the number controls.
-The number controls are where the user puts their solutions to the task.
-The user may edit the value only of the current step's number control.
-If the user enters the correct value and presses the \textbf{Check answer} button, a green checkmark symbol appears to the right side of the number control.
-If the user enters an incorrect value, a red X symbol appears instead.
+Figure \ref{task_cube} shows the main part of the task solving module.
+The \textit{Cube} task is loaded.
 
-Second, only steps up to the current step are visible.
-The navigation buttons are used to move between steps.
-The \textbf{< Prev} button moves to the previous step.
-The \textbf{Next >} button moves to the next step.
-The buttons are active only when the user is able to change the current step.
-The \textbf{< Prev} button is inactive when the user is on the first step of the task.
-The \textbf{Next >} button is inactive when the user is on the last step of the task or the answer for the current step is incorrect.
-
-When the user enters the correct answer for the last step of the task, the task is completed.
-When a task is completed, a label with the text "Task complete!" appears under the \textbf{Check answer} button.
-
-The \textbf{Get new task} button resets the current task and provides the user with a new one with randomized values.
-Returning to the task selection screen and selecting the same task achieves the same goal.
-
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{graf/task}
-    \caption{The default state of the task solving screen.}
+    \includegraphics[width=\textwidth]{graf/task/cube}
+    \caption{The task solving screen. The \textit{Cube} task is loaded.}
+    \label{task_cube}
 \end{figure}
 
-\begin{figure}[ht]
+Inside the main part of the task solving module, the user can find:
+\begin{itemize}
+    \item the 3D view showing the current task,
+    \item the description of the task,
+    % TODO: idk co z tym
+    \item the step navigation buttons,
+    \item the \textit{step list},
+    \item the \textbf{Check answer} button,
+    \item the \textbf{Get new task} button.
+\end{itemize}
+The \textit{step list} is the part of the UI responsible for displaying the task's steps.
+The step list (marked in red) and its parts are marked in figure \ref{task_cube_step_container}.
+Each element of the step list consists of three parts:
+\begin{itemize}
+    \item The step description (marked in green). It states what should be calculated for the step.
+    \item The help button (marked in blue). The button shows a hint for its respective step when pressed.
+    \item The answer spin box (marked in yellow). The user places their answer for the respective step here.
+\end{itemize}
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{graf/task_solved}
-    \caption{The task solving screen after the current task is completed.}
+    \includegraphics[width=\textwidth]{graf/task/cube_step_container}
+    \caption{The task solving screen. The step list is marked with a red rectangle.}
+    \label{task_cube_step_container}
+\end{figure}
+
+% The user may edit the value only of the current step's spin box.
+If the user enters the correct value and presses the \textbf{Check answer} button, a green checkmark symbol appears to the right side of the spin box (see figure \ref{task_cube_first_step_good}).
+If the user enters an incorrect value, a red X symbol appears instead (see figure \ref{task_cube_first_step_bad}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/task/cube_first_step_good}
+    \caption{A green checkmark appears next to the spin box when the correct answer is provided.}
+    \label{task_cube_first_step_good}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/task/cube_first_step_bad}
+    \caption{A red X symbol appears next to the spin box when an incorrect answer is provided.}
+    \label{task_cube_first_step_bad}
+\end{figure}
+
+% The \textbf{< Prev} button moves to the previous step.
+% The \textbf{Next >} button moves to the next step.
+% The buttons are active only when the user is able to change the current step.
+% The \textbf{< Prev} button is inactive when the user is on the first step of the task.
+% The \textbf{Next >} button is inactive when the user is on the last step of the task or the answer for the current step is incorrect.
+
+% \newpage
+
+After providing the correct answer for the current step, the user can move to the next step using the \textbf{Next >} button (see figure \ref{task_cube_second_step}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/task/cube_second_step}
+    \caption{The state of the task solving screen after moving to the second step.}
+    \label{task_cube_second_step}
+\end{figure}
+
+The user should repeat this process for each step of the task to complete the task.
+When the user enters the correct answer for the last step of the task, the task is completed.
+When a task is completed, a label with the text "Task complete!" appears under the \textbf{Check answer} button.
+The state of the task solving screen after the task is completed is visible in figure \ref{task_cube_complete}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/task/cube_complete}
+    \caption{The state of the task solving screen after the task is completed.}
+    \label{task_cube_complete}
+\end{figure}
+
+Pressing the \textbf{Get new task} button provides the user with a new task of the same type with randomized parameter values.
+The state of the task solving screen after pressing the \textbf{Get new task} button is visible in figure \ref{task_cube_after_reset}.
+This state is the same as the one seen in figure \ref{task_cube} with the exception of tasks parameter values.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/task/cube_after_reset}
+    \caption{The state of the task solving screen after pressing the \textbf{Get new task} button.}
+    \label{task_cube_after_reset}
 \end{figure}
 
 \newpage
@@ -270,32 +425,61 @@ Returning to the task selection screen and selecting the same task achieves the 
 \subsection{Playground}
 
 The playground allows the user to create an arbitrary polyhedron and inspect its properties.
-The playground starts empty and the user can add vertices from which the polyhedron is created.
-The vertices can be added in several ways.
+The playground starts empty by default and the user can add vertices from which the polyhedron is created.
+Figure \ref{playground_default} shows the default state of the playground module.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{graf/playground}
+    \includegraphics[width=\textwidth]{graf/playground/default}
     \caption{The default state of the playground module.}
+    \label{playground_default}
 \end{figure}
 
 \subsubsection{Adding vertices} \label{add_verts}
 
+The vertices can be added in several ways.
 The easiest way to add vertices is to load a predefined polyhedron.
 To do this, the user should select one of the predefined polyhedrons next to the "Load a polyhedron" label.
 Next, they should press the \textbf{Load} button to the right.
 This loads a predefined set of vertices.
+Figure \ref{playground_predef_prism} shows the state of the playground with the predefined prism vertices loaded.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/playground/predef_prism}
+    \caption{The predefined prism vertices loaded in the playground.}
+    \label{playground_predef_prism}
+\end{figure}
 
 Another way to load a set of vertices is to load them from a file.
-To do this, the user should press the \textbf{Load} button next to the "Load a polyhedron from a file" label.
+To do this, the user should press the \textbf{Load file} button next to the "Load a polyhedron from a file" label.
 A system file dialog should appear, expecting the user to select a file with the \texttt{.poly} extension.
 No example \texttt{.poly} files are provided by default.
-A detailed explanation of \texttt{.poly} files is provided in section \ref{poly_files}. % TODO: numer Playground jest
+A detailed explanation of \texttt{.poly} files is provided in section \ref{poly_files}.
 
 The last way to add a vertex is to use the \textbf{Add new vertex} button next to the "Vertices" label.
 This adds a new vertex in the origin of the coordinate system.
 When adding vertices this way, the polyhedron may become invalid.
 Polyhedron validity is explained in section \ref{poly_valid}.
+Figure \ref{new_vertex_error} shows what happens after adding a new vertex to predefined prism vertices (as seen in figure \ref{playground_predef_prism}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/playground/new_vertex_error}
+    \caption{A new vertex is added to predefined prism vertices. The polyhedron becomes invalid.}
+    \label{new_vertex_error}
+\end{figure}
+
+One way to solve this issue is to move the newly added vertex (called "Vertex 7" in this case) such that a valid polyhedron can be created.
+The position (0, 2, 0) allows for the creation of a polyhedron.
+Figure \ref{predef_prism_new_vertex} shows the polyhedron created by moving the new vertex.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/playground/predef_prism_new_vertex}
+    \caption{The position of the new vertex is set to (0, 2, 0). The polyhedron becomes valid.}
+    \label{predef_prism_new_vertex}
+\end{figure}
 
 \subsubsection{The vertex list}
 
@@ -305,8 +489,8 @@ Each entry consists of:
 \begin{itemize}
     \item The editable name of the vertex. It is used for display only.
         It appears in the vertex informational label alongside the coordinates.
-    \item Three number controls corresponding to the coordinates of the vertex. 
-        The first, second and third number controls correspond to the x, y and z coordinates respectively.
+    \item Three spin boxes corresponding to the coordinates of the vertex. 
+        The first, second, and third spin box correspond to the x, y, and z coordinate respectively.
     \item The remove button. The vertex is removed when this button is pressed.
     \item A red "Duplicate vertex" warning. This warning appears only when there are multiple vertices with the same coordinates.
 \end{itemize}
@@ -320,15 +504,15 @@ A polyhedron which contains concave faces is considered invalid.
 Otherwise, it is valid.
 When the polyhedron is valid:
 \begin{itemize}
-    \item The polyhedron in the 3D view is filled, its vertices and edges are shown,
-    \item The properties UI displays the values of the polyhedron's area and volume,
-    \item No warning is shown.
+    \item the polyhedron in the 3D view is filled, its vertices and edges are shown,
+    \item the properties UI displays the values of the polyhedron's area and volume,
+    \item no warning is shown.
 \end{itemize}
 When the polyhedron is invalid:
 \begin{itemize}
-    \item Only the vertices are shown in the 3D view,
-    \item The properties UI displays 0 for both area and volume,
-    \item A warning in the form of a red exclamation mark is shown next to the "Vertices" label.
+    \item only the vertices are shown in the 3D view,
+    \item the properties UI displays 0 for both area and volume,
+    \item a warning in the form of a red exclamation mark is shown next to the "Vertices" label.
 \end{itemize}
 
 It may happen that the user adds two or more vertices with equal coordinates.
@@ -348,11 +532,18 @@ In the dialog, the user should specify the name of the file and where to save it
 After the file is saved, it is ready to be loaded.
 The instructions on how to load a polyhedron file are provided in section \ref{add_verts}.
 
-% \subsubsection{Other}
-
 \subsection{Settings}
 
 The settings screen allows the user to change certain behaviors of the application.
+Figure \ref{settings} shows the settings screen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graf/settings}
+    \caption{The settings screen.}
+    \label{settings}
+\end{figure}
+
 Settings are split into two sections.
 The \textit{Camera} section contains two settings related to the camera of the 3D view:
 \begin{itemize}
@@ -364,8 +555,10 @@ The \textit{Playground} section contains one setting related to the playground m
 The \textit{Coordinate precision} setting determines how precisely the vertices can be placed.
 It is expressed in the number of decimal digits.
 
-The settings are stored in a \textbf{settings.cfg} file
-The location of this file is platform-dependent:
+The settings are stored in a \textbf{settings.cfg} file.
+The settings are saved to this file each time the user leaves the settings screen provided at least one setting was changed from its previous value.
+Listing \ref{settings_file} shows the content of this file with all settings set to their default values.
+The location of the \textbf{settings.cfg} file is platform-dependent:
 
 \bigskip
 
@@ -391,19 +584,13 @@ The same happens when the file is deleted.
 If the user manually enters a value outside of the range defined by the setting, the value is constrained to the defined range.
 The file is not changed and contains the value entered manually.
 
-\begin{lstlisting}[basicstyle=\ttfamily, showstringspaces=false, caption=The default content of the \textbf{settings.cfg} file.]
+\begin{lstlisting}[basicstyle=\ttfamily, showstringspaces=false, caption=The default content of the \textbf{settings.cfg} file., label=settings_file]
 [settings]
 
 "Move speed"=120.0
 "Zoom speed"=5.0
 "Coordinate precision"=0
 \end{lstlisting}
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=\textwidth]{graf/settings}
-    \caption{The settings screen.}
-\end{figure}
 
 % \begin{tabular}{ |c|c|c| } 
 %  \hline

@@ -3,7 +3,34 @@
 \section{Obtained result}
 
 The goal of the project was to create an educational application which made learning stereometry easier.
-The finished result achieves this goal with the use of three modules, namely task exploration, task solving and the playground.
+The finished result achieves this goal with the use of three modules, namely task exploration, task solving, and the playground.
+
+The task exploration module teaches the user how to solve various tasks from the field of stereometry.
+It prepares the user for solving the tasks themself in the task solving module.
+The ability to change task parameter values helps the user visualize how those changes influence how the solids featured in the task look.
+
+The task solving module improves the user's skills related to calculation of various characteristics of solids.
+By dividing each task into steps, the user learns how to divide a bigger problem into smaller parts.
+Multiple difficulties allow the user to select the difficulty appropriate for their skill level.
+With time, the user may progress to more difficult tasks.
+
+The playground module allows the user to freely explore 3D geometry by playing with polyhedrons.
+The user can create a polyhedron from a list of vertices and see the polyhedron in a 3D view.
+The properties of the displayed polyhedron can be inspected to help the user better understand the relationship between the specified vertices and the created polyhedron.
+
+\section{Evaluation of used tools and technologies}
+
+The chosen tools played an important role in the successful completion of the project.
+The Godot engine provided scene management, user interface creation, and 3D rendering within a single environment.
+This made it a suitable platform for developing an educational application with 3D rendering capabilites.
+
+The use of the Neovim text editor improved the development of the application's source code.
+Its extensibility and keyboard-oriented controls allowed for fast editing of scripts.
+Neovim's integration with version control tools made version control simpler and more efficient.
+
+Version control was managed using Git and the repository was hosted on GitHub.
+This enabled systematic tracking of changes, safe experimentation during development, and easy recovery from errors.
+Publishing the source code of the application supports future extension of the application.
 
 \section{Further development}
 
@@ -24,18 +51,26 @@ New tasks could feature new solids, including non-polyhedrons.
 
 \section{Encountered difficulties}
 
-Even though the used tools are well suited for the project, some issues arose during the development.
-The most common issue that appeared multiple times was screen state management.
-Some elements, like the polyhedron or task in the 3D view, were not being reset correctly when entering or exiting the screen they were in.
-This caused some properties to be set to null and the application to crash.
-Godot's debugger helped track the source of these issues.
-A potential solution would be to instantiate the screen from scratch when it is entered.
-When done this way, care should be taken regarding the performance of such approach.
+Even though the used tools were well suited for the project, some difficulties were encountered during the development.
+An issue that appeared multiple times was screen state management.
+Some elements, like the polyhedron or task in the 3D view, were not being reset correctly when entering or leaving the screen they were in.
+Care had to be taken to ensure that the state of each screen would be correct after leaving and entering it.
 Another issue was the class structure.
-The classes were refactored several times to accomodate for changing requirements.
-One example are classes representing solids like cube and prism.
-Originally, they were derived from the general \texttt{Figure} class.
-Later, a new \texttt{Polyhedron} class was added and the \texttt{Cube} and \texttt{Prism} classes were rewritten to inherit from it.
+Classes were refactored several times to accomodate for changing requirements.
+This was especially prevalent in classes related to solids.
+
+\subsection{Acquired knowledge and experience}
+
+The development of the application provided valuable experience in the design and implementation of an interactive three-dimensional application with a graphical user interface.
+As this was the first project of this type for the author, particular emphasis was placed on understanding 3D scene management and spatial transformations.
+
+The project also required integrating 3D visualization with user interface elements.
+This led to a deeper understanding of event-driven programming and communication between subsystems of the application.
+
+The Godot engine was used in combination with the Neovim text editor, which required configuring and connecting Neovim to Godot's language server.
+This contributed to improved understanding of development tools and communication between them.
+
+Overall, the project significantly expanded the author's practical experience in software development, particularly in the areas of 3D graphics, application architecture, and toolchain configuration.
 
 % \begin{itemize}
 % \item achieved results with regard to objectives of the thesis and requirements
