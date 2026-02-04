@@ -216,20 +216,22 @@ Containers contain other UI elements and are responsible for their layout.
 They are nodes that derive from the \texttt{Container} class.
 There are many types of containers.
 Each type of container lays out its children in a different way.
-For instance, the \texttt{HBoxContainer} lays out its children horizontally.
-The \texttt{VBoxContainer} container lays out its children vertically.
+For instance, the \texttt{HBoxContainer} lays out its children horizontally (see figure \ref{hbox}).
+The \texttt{VBoxContainer} container lays out its children vertically (see figure \ref{vbox}).
 Other types of containers include the \texttt{GridContainer} and \texttt{ScrollContainer}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.33]{graf/hbox_layout}
     \caption{A \texttt{Button}, \texttt{Label}, and \texttt{SpinBox} in a \texttt{HBoxContainer}.}
+    \label{hbox}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.33]{graf/vbox_layout}
     \caption{The same nodes in a \texttt{VBoxContainer}.}
+    \label{vbox}
 \end{figure}
 
 Interactive elements allow the user to interact with the application.
