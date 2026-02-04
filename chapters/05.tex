@@ -86,7 +86,7 @@ A node does not have to know where it is in the scene tree when communication wi
 \section{Representation of solids}
 
 Each solid in the application is represented by a scene.
-The structure of the scene is similiar to the one in figure \ref{simple_scene}.
+The structure of the scene is similar to the one in figure \ref{simple_scene}.
 
 \begin{figure}[H]
     \centering
@@ -114,7 +114,7 @@ It:
 The \texttt{Polyhedron} class extends the \texttt{Figure} class.
 It represents a convex polyhedron.
 The class handles the additional vertex and edge objects.
-The class handles the additional objects that are spawned alogside the main body of the polyhedron.
+The class handles the additional objects that are spawned alongside the main body of the polyhedron.
 Those objects are the spheres on the vertices and cylinders on the edges.
 The class implements \texttt{Figure}'s \texttt{area} and \texttt{volume} methods to calculate these properties for any polyhedron.
 
@@ -181,7 +181,7 @@ Algorithm \ref{volume_computation} shows the algorithm used to calculate the vol
 Each task is a scene whose root node is of a type derived from the \texttt{Task} class.
 The \texttt{Task} class defines methods for the task difficulty, description, parameters, and steps.
 Each derived task class then overrides those methods to create a unique task.
-The only children of the task scene's root node are the the solids that make up the task.
+The only children of the task scene's root node are the solids that make up the task.
 Figure \ref{tasks_diagram} shows the diagram of the \texttt{Task} class, classes derived from it, and other related classes.
 
 \begin{figure}[H]
@@ -213,7 +213,7 @@ Figure \ref{tasks_diagram} shows the diagram of the \texttt{Task} class, classes
 \section{User interface}
 
 User interface in Godot is created with the use of \texttt{Control} nodes.
-Contol nodes used in GeoApp may be split into three categories: containers, interactive elements, and labels.
+Control nodes used in GeoApp may be split into three categories: containers, interactive elements, and labels.
 Containers contain other UI elements and are responsible for their layout.
 They are nodes that derive from the \texttt{Container} class.
 There are many types of containers.
@@ -237,7 +237,7 @@ Other types of containers include the \texttt{GridContainer} and \texttt{ScrollC
 \end{figure}
 
 Interactive elements allow the user to interact with the application.
-They define signals which are emitted when the user iteracts with them.
+They define signals which are emitted when the user interacts with them.
 The two main interactive elements in GeoApp are the \texttt{Button} and \texttt{SpinBox} nodes.
 The \texttt{Button} node exposes the \texttt{pressed} signal which is emitted when the button is pressed.
 The \texttt{SpinBox} node exposes the \texttt{value\_changed} signal which is emitted when the value inside of the spin box changes.
@@ -328,7 +328,7 @@ Visually, the project file structure looks like:
 \begin{itemize}
     \item \texttt{assets} contains non-code resources used by the application, such as icons, and the application's theme.
     \item \texttt{scenes} contains Godot scene files, which define the structure and composition of the user interface and 3D objects.
-    \item \texttt{scripts} contains script files implementing the application logic, including input hanlding and geometric calculations.
+    \item \texttt{scripts} contains script files implementing the application logic, including input handling and geometric calculations.
 \end{itemize}
 This structure improves clarity and simplifies project navigation.
 
