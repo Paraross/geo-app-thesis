@@ -111,7 +111,7 @@ The camera can be zoomed in with the \textbf{E} key and zoomed out with the \tex
 
 When a solid is loaded in the 3D view, the user can inspect some of its properties.
 When an object (the solid, one of its vertices or one of its edges) is hovered overed by the mouse cursor, it becomes red.
-When a hovered vertex or edge is clicked using the left mouse button, an informational label appears.
+When a hovered vertex or edge is clicked using the left mouse button, an informational label appears (see figures \ref{label_task} and \ref{label_playground}).
 The informational label for a vertex contains its position.
 In the playground module, the label also contains the name of the vertex.
 The informational label for an edge contains its length.
@@ -128,6 +128,7 @@ When an object with a visible informational label is clicked using the left mous
         \caption{Visible informational labels.}
     \end{subfigure}
     \caption{The 3D view as seen in the task exploration and task solving modules.}
+    \label{label_task}
 \end{figure}
 
 \begin{figure}[ht]
@@ -141,6 +142,7 @@ When an object with a visible informational label is clicked using the left mous
         \caption{Visible informational labels.}
     \end{subfigure}
     \caption{The 3D view as seen in the playground module.}
+    \label{label_playground}
 \end{figure}
 
 \subsection{The navigation bar}
@@ -156,17 +158,22 @@ The navigation bar contains five buttons:
     \item the button with the gear icon presents the user with the settings screen.
 \end{itemize}
 The button corresponding to the current screen is disabled.
+% Figure \ref{navbar_task} shows the navigation bar as seen in the task exploration screen.
+% Figure \ref{navbar_settings} shows the navigation bar as seen in the settings screen.
+Figures \ref{navbar_task} and \ref{navbar_settings} show the navigation bar.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{graf/navbar_explore}
     \caption{The navigation bar as seen in the task exploration screen.}
+    \label{navbar_task}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{graf/navbar_settings}
     \caption{The navigation bar as seen in the settings screen.}
+    \label{navbar_settings}
 \end{figure}
 
 \subsection{Task exploration}
@@ -190,12 +197,14 @@ Ordered from left to right, the user interface features:
 \end{itemize}
 The default, empty state of the task exploration module is visible in figure \ref{explore_empty}.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{graf/explore/empty}
     \caption{Empty task exploration module.}
     \label{explore_empty}
 \end{figure}
+
+\newpage
 
 The tasks can be filtered by name.
 Figure \ref{explore_filter} shows the task list being filtered.
