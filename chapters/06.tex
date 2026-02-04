@@ -46,10 +46,11 @@ The problem was resolved by modifying the update logic.
 In the fixed version, each camera rotation is calculated sequentially.
 Changes from previous directions' calculations are included in the subsequent ones.
 This approach guarantees that the effects fully cancel out when the camera is moved in opposite directions at the same time.
+Listings \ref{camera_pre} and \ref{camera_post} show the camera movement logic before and after the fix.
 
 % TODO: pseudokod?
 
-\begin{lstlisting}[basicstyle=\ttfamily, showstringspaces=false, caption=Original camera movement implementation.]
+\begin{lstlisting}[basicstyle=\ttfamily, showstringspaces=false, caption=Original camera movement implementation., label=camera_pre]
 var next_camera_position := position
 if move_up and camera_angle - rotate_amount > -PI / 2.0:
     var left := -Vector3.UP.cross(position).normalized()
@@ -65,7 +66,7 @@ if move_right:
 position = next_camera_position
 \end{lstlisting}
 
-\begin{lstlisting}[basicstyle=\ttfamily, showstringspaces=false, caption=Fixed camera movement implementation.]
+\begin{lstlisting}[basicstyle=\ttfamily, showstringspaces=false, caption=Fixed camera movement implementation., label=camera_post]
 if move_up and camera_angle - rotate_amount > -PI / 2.0:
     var left := Vector3.DOWN.cross(position).normalized()
     position = position.rotated(left, rotate_amount)
@@ -92,6 +93,7 @@ As the solid got further away from the origin, the error became more apparent.
 
 The bug was fixed by correctly calculating the center of the polyhedron.
 In the fixed version, the center of the polyhedron is calculated as the average position of all of its vertices.
+Figures \ref{basis_pre} and \ref{basis_post} show the \textit{Stacked Cubes} task before and after the fix.
 
 \begin{figure}[H]
     \centering
