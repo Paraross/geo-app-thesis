@@ -103,10 +103,10 @@ For example, the root node of the cube scene is of the \texttt{Cube} type.
 The \texttt{Figure} class is the base class of each solid.
 It:
 \begin{itemize}
-    \item stores the mesh and the collision shape,
-    \item handles behavior that is triggered when the solid is hovered,
-    \item contains the \texttt{area} and \texttt{volume} methods,
-    \item emits signals when the properties of the solid change.
+    \item Stores the mesh and the collision shape.
+    \item Handles behavior that is triggered when the solid is hovered.
+    \item Contains the \texttt{area} and \texttt{volume} methods.
+    \item Emits signals when the properties of the solid change.
 \end{itemize}
 
 \subsection{Polyhedron}
@@ -191,23 +191,28 @@ Figure \ref{tasks_diagram} shows the diagram of the \texttt{Task} class, classes
     \label{tasks_diagram}
 \end{figure}
 
+Each class derived from \texttt{Task} (excluding \texttt{CubeTaskBase} and \texttt{PrismTaskBase}) corresponds to a task.
+For example, \texttt{StackedCubesTask} corresponds to the \textit{Stacked Cubes} task. \texttt{PrismTaskMediumPrecision} corresponds to the \textit{Prism With Decimal Digits} task.
+Additionally:
+
 \begin{itemize}
-    \item \textit{TaskFloatValue} represents a task parameter.
+    \item \texttt{TaskFloatValue} represents a task parameter.
         Each instance specifies the current, minimum, and maximum value as well the precision with which the value is randomly picked.
-    \item \textit{Step} represents a single task step.
-    \item \textit{Task} is the base class for all tasks.
-    \item \textit{CubeTaskBase} is the base class of \textit{CubeTask} and \textit{CubeTaskMediumPrecision}.
-    \item \textit{CubeTask} corresponds to the \textit{Cube} task.
-    \item \textit{CubeTaskMediumPrecision} corresponds to the \textit{Cube With Decimal Digits} task.
-    \item \textit{PrismTaskBase} is the base class of \textit{PrismTask} and \textit{PrismTaskMediumPrecision}.
-    \item \textit{PrismTask} corresponds to the \textit{Prism} task.
-    \item \textit{PrismTaskMediumPrecision} corresponds to the \textit{Prism With Decimal Digits} task.
-    \item \textit{CuboidTask} corresponds to the \textit{Cuboid} task.
-    \item \textit{HexagonalPyramidTask} corresponds to the \textit{Hexagonal Pyramid} task.
-    \item \textit{PyramidTask} corresponds to the \textit{Pyramid} task.
-    \item \textit{PyramidAreaTask} corresponds to the \textit{Pyramid Area} task.
-        It features the same parameters but overrides the \texttt{steps} method.
-    \item \textit{StackedCubesTask} corresponds to the \textit{Stacked Cubes} task.
+    \item \texttt{Step} represents a single task step.
+    % \item \texttt{Task} is the base class for all tasks.
+    \item \texttt{CubeTaskBase} is the base class of \texttt{CubeTask} and \texttt{CubeTaskMediumPrecision}.
+        It stores the cube which is used by all of its subclasses.
+        The subclasses differ in the precision of their task parameters.
+    \item \texttt{PrismTaskBase} is the base class of \texttt{PrismTask} and \texttt{PrismTaskMediumPrecision}.
+        It stores the prism which is used by all of its subclasses.
+        The subclasses differ in the precision of their task parameters.
+    % \item \texttt{CuboidTask} corresponds to the \textit{Cuboid} task.
+    % \item \texttt{HexagonalPyramidTask} corresponds to the \textit{Hexagonal Pyramid} task.
+    % \item \texttt{PyramidTask} corresponds to the \textit{Pyramid} task.
+    % \item \texttt{PyramidAreaTask} corresponds to the \textit{Pyramid Area} task.
+    %     It uses the same task parameters but overrides the \texttt{steps} method.
+    \item \texttt{PyramidAreaTask} uses the same task parameters as \texttt{PyramidTask} but overrides the \texttt{steps} method.
+    % \item \texttt{StackedCubesTask} corresponds to the \textit{Stacked Cubes} task.
 \end{itemize}
 
 \section{User interface}

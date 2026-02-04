@@ -6,31 +6,47 @@ A PC (personal computer) is required to run the application.
 Versions of the application were prepared for the Windows, macOS, and Linux operating systems.
 Due to hardware limitations, only the version for the Windows operating system was tested.
 The application requires approximately 100 MB of storage space.
-The application was tested on a laptop device with the following software and hardware configuration:
+% The application was tested on a laptop device with the following software and hardware configuration:
+The application was only tested on a laptop device with the software and hardware configuration specified in table \ref{testing_specs}.
 
-\bigskip
-
-\begin{tabularx}{0.9\linewidth}{l X}
-    CPU & AMD Ryzen 7 5800H \\
-    GPU & NVIDIA GeForce RTX 3050 \\
-    RAM & 16 GB \\
-    Operating system & Windows 11 \\
-\end{tabularx}
-
-\bigskip
+\begin{table}%[ht]
+    \centering
+    \caption{Software and hardware configuration of the device on which the application was tested.}
+    \label{testing_specs}
+    \begin{tabularx}{0.9\linewidth}{|l|X|}
+        \hline
+        CPU & AMD Ryzen 7 5800H \\
+        \hline
+        GPU & NVIDIA GeForce RTX 3050 \\
+        \hline
+        RAM & 16 GB \\
+        \hline
+        Operating system & Windows 11 \\
+        \hline
+    \end{tabularx}
+\end{table}
 
 The application performed smoothly on the device.
 Due to limited access to other hardware, the application could not be tested on low-end devices to establish minimum system requirements accurately.
-The Godot Engine documentation specifies the following as the minimum system requirements for a simple 2D or 3D project \cite{godotspecsdocs}:
+% The Godot Engine documentation specifies the following as the minimum system requirements for a simple 2D or 3D project \cite{godotspecsdocs}:
+Table \ref{godot_specs} presents the minimum system requirements for a simple 2D or 3D project as specified by the Godot Engine documentation \cite{godotspecsdocs}.
 
-\bigskip
-
-\begin{tabularx}{0.9\linewidth}{l X}
-    CPU & x86\_32 CPU with SSE2 support, x86\_64 CPU with SSE4.2 support, ARMv8 CPU \\
-    GPU & Integrated graphics with full Vulkan 1.0 support, Metal 3 support (macOS) or Direct3D 12 (12\_0 feature level) support (Windows) \\
-    RAM & 2 GB \\
-    Operating system & Windows 10, macOS 10.15, Linux distribution released after 2018
-\end{tabularx}
+\begin{table}[H]
+    \centering
+    \caption{Minimum system requirements for a simple 2D or 3D project specified by the Godot Engine documentation.}
+    \label{godot_specs}
+    \begin{tabularx}{0.9\linewidth}{|l|X|}
+        \hline
+        CPU & x86\_32 CPU with SSE2 support, x86\_64 CPU with SSE4.2 support, ARMv8 CPU \\
+        \hline
+        GPU & Integrated graphics with full Vulkan 1.0 support, Metal 3 support (macOS) or Direct3D 12 (12\_0 feature level) support (Windows) \\
+        \hline
+        RAM & 2 GB \\
+        \hline
+        Operating system & Windows 10, macOS 10.15, Linux distribution released after 2018 \\
+        \hline
+    \end{tabularx}
+\end{table}
 
 \section{Installation}
 
@@ -83,13 +99,13 @@ Each module provides different ways for the user to learn stereometry.
 Upon starting the application, the user sees the main menu.
 The main menu is visible in figure \ref{main_menu}.
 The main menu is a central hub from which the rest of the application can be accessed.
-The main menu contains several button used to navigate the application:
+The main menu contains several buttons used to navigate the application:
 \begin{itemize}
-    \item the \textbf{Explore tasks} button presents the user with the task exploration module,
-    \item the \textbf{Solve tasks} button presents the user with the task solving module,
-    \item the \textbf{Playground} button presents the user with the playground module,
-    \item the \textbf{Settings} button presents the user with the settings screen,
-    \item the \textbf{Quit} button closes the application.
+    \item The \textbf{Explore tasks} button presents the user with the task exploration module.
+    \item The \textbf{Solve tasks} button presents the user with the task solving module.
+    \item The \textbf{Playground} button presents the user with the playground module.
+    \item The \textbf{Settings} button presents the user with the settings screen.
+    \item The \textbf{Quit} button closes the application.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -151,11 +167,11 @@ Each screen, except for the main menu, features a navigation bar.
 The navigation bar appears above the main content of the current screen.
 The navigation bar contains five buttons:
 \begin{itemize}
-    \item the \textbf{Main menu} button presents the user with the main menu,
-    \item the \textbf{Explore tasks} button presents the user with the task exploration screen,
-    \item the \textbf{Solve tasks} button presents the user with the task selection screen,
-    \item the \textbf{Playground} button presents the user with the playground screen,
-    \item the button with the gear icon presents the user with the settings screen.
+    \item The \textbf{Main menu} button presents the user with the main menu.
+    \item The \textbf{Explore tasks} button presents the user with the task exploration screen.
+    \item The \textbf{Solve tasks} button presents the user with the task selection screen.
+    \item The \textbf{Playground} button presents the user with the playground screen.
+    \item The button with the gear icon presents the user with the settings screen.
 \end{itemize}
 The button corresponding to the current screen is disabled.
 % Figure \ref{navbar_task} shows the navigation bar as seen in the task exploration screen.
@@ -189,9 +205,9 @@ Ordered from left to right, the user interface features:
     \item A list of all of the steps required to solve the tasks.
         For each step, there is:
         \begin{itemize}
-            \item The description of what should be calculated for the step.
+            \item The description. It specifies what should be calculated for the step.
             \item A help button. The button shows a hint for its respective step when pressed.
-            \item A spin box\footnote{A spin box or spinner is a user interface element which allows the user to adjust a value using a text box or up and down arrows.} which displays the correct answer for its respective step.
+            \item A spin box\footnote{A spin box or spinner is a user interface element which allows the user to adjust a value using a text box or up and down arrows.}. It displays the correct answer for its respective step.
         \end{itemize}
     \item A view of the selected task.
 \end{itemize}
@@ -229,7 +245,7 @@ The third step requires the user to calculate the cube's volume.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graf/explore/cube}
-    \caption{Task exploration module. The \textit{Cube} task is selected.}
+    \caption{Task exploration module. The \textit{Cube} task is selected. The \textit{Side} parameter has a value of 3.}
     \label{explore_cube}
 \end{figure}
 
@@ -241,7 +257,7 @@ As a result, the cube in the 3D view appears bigger and correct answers for each
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graf/explore/cube2}
-    \caption{Task exploration module. The \textit{Cube} task is selected. The task has a different parameter value as compared to the one visible in figure \ref{explore_cube}}
+    \caption{Task exploration module. The \textit{Cube} task is selected. The \textit{Side} parameter has a value of 5.}
     \label{explore_cube2}
 \end{figure}
 
@@ -302,21 +318,21 @@ Here, the user selects the task they wish to solve.
 Figures \ref{task_selection} and \ref{task_selection_medium} show the state of the task selection screen before the user selects a task.
 Figure \ref{task_selection_selected} shows the state of the task selection screen when a task is selected.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graf/task/selection}
     \caption{The task selection screen. The easy difficulty is selected. No task is selected.}
     \label{task_selection}
 \end{figure}
 
-\begin{figure}%[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graf/task/selection_medium}
     \caption{The task selection screen. The medium difficulty is selected. No task is selected.}
     \label{task_selection_medium}
 \end{figure}
 
-\begin{figure}%[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graf/task/selection_selected}
     \caption{The task selection screen. The \textit{Cube} task is selected.}
@@ -329,7 +345,7 @@ Then, the user should select their desired task and press the \textbf{Start} but
 The \textbf{Start} button can be pressed only when a task is selected.
 After pressing the \textbf{Start} button, the user is presented with the main part of the task solving module.
 
-\newpage
+% \newpage
 
 \subsubsection{The main part of the task solving module}
 
@@ -347,15 +363,14 @@ The \textit{Cube} task is loaded.
     \label{task_cube}
 \end{figure}
 
-Inside the main part of the task solving module, the user can find:
+Inside the main part of the task solving module, the user can find the following UI elements:
 \begin{itemize}
-    \item the 3D view showing the current task,
-    \item the description of the task,
-    % TODO: idk co z tym
-    \item the step navigation buttons,
-    \item the \textit{step list},
-    \item the \textbf{Check answer} button,
-    \item the \textbf{Get new task} button.
+    \item 3D view showing the current task
+    \item description of the task
+    \item step navigation buttons
+    \item \textit{step list}
+    \item \textbf{Check answer} button
+    \item \textbf{Get new task} button
 \end{itemize}
 The \textit{step list} is the part of the UI responsible for displaying the task's steps.
 The step list (marked in red) and its parts are marked in figure \ref{task_cube_step_container}.
@@ -517,15 +532,15 @@ A polyhedron which contains concave faces is considered invalid.
 Otherwise, it is valid.
 When the polyhedron is valid:
 \begin{itemize}
-    \item the polyhedron in the 3D view is filled, its vertices and edges are shown,
-    \item the properties UI displays the values of the polyhedron's area and volume,
-    \item no warning is shown.
+    \item The polyhedron in the 3D view is filled, its vertices and edges are shown.
+    \item The properties UI displays the values of the polyhedron's area and volume.
+    \item No warning is shown.
 \end{itemize}
 When the polyhedron is invalid:
 \begin{itemize}
-    \item only the vertices are shown in the 3D view,
-    \item the properties UI displays 0 for both area and volume,
-    \item a warning in the form of a red exclamation mark is shown next to the "Vertices" label.
+    \item Only the vertices are shown in the 3D view.
+    \item The properties UI displays 0 for both area and volume.
+    \item A warning in the form of a red exclamation mark is shown next to the "Vertices" label.
 \end{itemize}
 
 It may happen that the user adds two or more vertices with equal coordinates.
@@ -571,21 +586,26 @@ It is expressed in the number of decimal digits.
 The settings are stored in a \textbf{settings.cfg} file.
 The settings are saved to this file each time the user leaves the settings screen provided at least one setting was changed from its previous value.
 Listing \ref{settings_file} shows the content of this file with all settings set to their default values.
-The location of the \textbf{settings.cfg} file is platform-dependent:
+The location of the \textbf{settings.cfg} file is platform-dependent (see table \ref{settings_file_loc}).
 
 \bigskip
 
-\begin{tabularx}{0.9\linewidth}{|l|X|}
-    \hline
-    Platform & Location \\
-    \hline
-    Windows & \texttt{\%APPDATA\%\textbackslash GeoApp} \\
-    \hline
-    Linux & \texttt{\textasciitilde/.local/share/GeoApp} \\
-    \hline
-    macOS & \texttt{\textasciitilde/Library/Application Support/GeoApp} \\
-    \hline
-\end{tabularx}
+\begin{table}[H]
+    \centering
+    \caption{Location of the \textbf{settings.cfg} file depending on the platform.}
+    \label{settings_file_loc}
+    \begin{tabularx}{0.9\linewidth}{|l|X|}
+        \hline
+        Platform & Location \\
+        \hline
+        Windows & \texttt{\%APPDATA\%\textbackslash GeoApp} \\
+        \hline
+        Linux & \texttt{\textasciitilde/.local/share/GeoApp} \\
+        \hline
+        macOS & \texttt{\textasciitilde/Library/Application Support/GeoApp} \\
+        \hline
+    \end{tabularx}
+\end{table}
 
 \bigskip
 
